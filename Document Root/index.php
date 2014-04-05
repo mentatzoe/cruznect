@@ -1,3 +1,13 @@
+<?php 
+	//Check if a session is running
+	if(session_id() != ""){
+		$username = $_SESSION['username'];
+	}
+
+
+?>
+
+
 <head>
 <style>
 body
@@ -19,6 +29,6 @@ color:FFFEFC;
 </head>
 
 <body>
-<h2>Hello world</h2>
+<h2>  </h2>
 
 </body>

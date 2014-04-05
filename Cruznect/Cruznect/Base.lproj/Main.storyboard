@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="1148" y="928"/>
         </scene>
-        <!--Table View Controller - All Projects-->
+        <!--Table View Controller - Recents-->
         <scene sceneID="ioa-B5-rRy">
             <objects>
                 <tableViewController id="8IO-7f-xJt" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             <outlet property="delegate" destination="8IO-7f-xJt" id="fvP-uH-EoP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Projects" id="B1P-g7-Sen"/>
+                    <navigationItem key="navigationItem" title="Recents" id="B1P-g7-Sen"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYy-IE-OTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +104,7 @@
             </objects>
             <point key="canvasLocation" x="2407" y="922"/>
         </scene>
-        <!--Table View Controller - Featured Projects-->
+        <!--Table View Controller - Featured-->
         <scene sceneID="WJZ-Do-JBY">
             <objects>
                 <tableViewController id="RYG-ao-qlr" sceneMemberID="viewController">
@@ -127,7 +127,7 @@
                             <outlet property="delegate" destination="RYG-ao-qlr" id="Inz-Dx-b2G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Featured Projects" id="lSw-wE-lhO"/>
+                    <navigationItem key="navigationItem" title="Featured" id="lSw-wE-lhO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="38Z-vu-YRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,11 +269,11 @@
             </objects>
             <point key="canvasLocation" x="1143" y="134"/>
         </scene>
-        <!--Navigation Controller - My Projects-->
+        <!--Navigation Controller - My Porjects-->
         <scene sceneID="f0L-VF-o43">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MY5-vK-aa9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Projects" id="qmF-44-dTz"/>
+                    <tabBarItem key="tabBarItem" title="My Porjects" image="projects.png" id="qmF-44-dTz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8tR-n6-29w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -292,7 +292,7 @@
         <scene sceneID="0Pk-7n-io4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYH-bj-eAG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="VTUISettings.png" id="ath-x6-U8m"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="ath-x6-U8m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tib-k1-RyE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -309,7 +309,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="VTUISettings.png" width="30" height="30"/>
+        <image name="projects.png" width="30" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

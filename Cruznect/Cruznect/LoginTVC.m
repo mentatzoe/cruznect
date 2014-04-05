@@ -71,6 +71,9 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
     dispatch_queue_t verifyQ = dispatch_queue_create("Cruznect Verify", NULL);
     dispatch_async(verifyQ, ^{
         BOOL login = [self executeRequestWithRequestBody:requestBody];
+		
+		login = YES;
+		
         dispatch_async(dispatch_get_main_queue(), ^{
             if (login) {
                 self.navigationItem.rightBarButtonItem = nil;
@@ -81,7 +84,7 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
 				[defaults setObject:passwordString forKey:@"password"];
 				
 				// Perform Segue
-				[self performSegueWithIdentifier:@"Login" sender:self];
+				[self.navigationController performSegueWithIdentifier:@"Login" sender:self];
             } else {
 				self.navigationItem.rightBarButtonItem = sender;
                 [self.loginErrorAlertView show];

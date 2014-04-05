@@ -12,7 +12,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if (![defaults objectForKey:@"Login"]) {
+		[defaults setObject:[NSNumber numberWithBool:NO] forKey:@"Login"];
+	}
+	
     return YES;
 }
 							

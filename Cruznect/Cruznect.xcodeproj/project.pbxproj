@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFB918F0AD7200FB9209 /* LoginTVC.m */; };
+		EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */; };
 		EB76F5BE18F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
 		EB76F5C018F0929E00743DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */; };
 		EB76F5C218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		EB47FFB818F0AD7200FB9209 /* LoginTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTVC.h; sourceTree = "<group>"; };
 		EB47FFB918F0AD7200FB9209 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
+		EB47FFBB18F0B15600FB9209 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
+		EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
 		EB76F5BA18F0929E00743DD3 /* Cruznect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cruznect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5BD18F0929E00743DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				EB76F5CF18F0929E00743DD3 /* Main.storyboard */,
+				EB47FFBB18F0B15600FB9209 /* RootTabBarController.h */,
+				EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */,
 				EB47FFB818F0AD7200FB9209 /* LoginTVC.h */,
 				EB47FFB918F0AD7200FB9209 /* LoginTVC.m */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
@@ -250,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */,
+				EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */,
 				EB76F5CA18F0929E00743DD3 /* main.m in Sources */,
 				EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */,
 			);

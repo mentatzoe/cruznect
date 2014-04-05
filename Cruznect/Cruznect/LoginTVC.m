@@ -76,15 +76,13 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
 		
         dispatch_async(dispatch_get_main_queue(), ^{
             if (login) {
-                self.navigationItem.rightBarButtonItem = nil;
-				
-                // Save username and password
-				NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-				[defaults setObject:usernameString forKey:@"username"];
-				[defaults setObject:passwordString forKey:@"password"];
-				
-				// Perform Segue
-				[self.navigationController performSegueWithIdentifier:@"Login" sender:self];
+                self.navigationItem.rightBarButtonItem =
+				[[UIBarButtonItem alloc] initWithTitle:@"Succeed!"
+												 style:UIBarButtonItemStyleBordered
+												target:nil
+												action:nil];
+				[self.delegate loginSucceedWithUsername:usernameString
+											andPassword:passwordString];
             } else {
 				self.navigationItem.rightBarButtonItem = sender;
                 [self.loginErrorAlertView show];

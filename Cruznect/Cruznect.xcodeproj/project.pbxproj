@@ -14,14 +14,13 @@
 		EB76F5CA18F0929E00743DD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5C918F0929E00743DD3 /* main.m */; };
 		EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5CD18F0929E00743DD3 /* AppDelegate.m */; };
 		EB76F5D118F0929E00743DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5CF18F0929E00743DD3 /* Main.storyboard */; };
-		EB76F5D418F0929E00743DD3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5D318F0929E00743DD3 /* FirstViewController.m */; };
-		EB76F5D718F0929E00743DD3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5D618F0929E00743DD3 /* SecondViewController.m */; };
 		EB76F5D918F0929E00743DD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5D818F0929E00743DD3 /* Images.xcassets */; };
 		EB76F5E018F0929E00743DD3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5DF18F0929E00743DD3 /* XCTest.framework */; };
 		EB76F5E118F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
 		EB76F5E218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
 		EB76F5EA18F0929E00743DD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5E818F0929E00743DD3 /* InfoPlist.strings */; };
 		EB76F5EC18F0929E00743DD3 /* CruznectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5EB18F0929E00743DD3 /* CruznectTests.m */; };
+		EBCE961C18F0A70300834D58 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCE961B18F0A70300834D58 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +45,14 @@
 		EB76F5CC18F0929E00743DD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB76F5CD18F0929E00743DD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EB76F5D018F0929E00743DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EB76F5D218F0929E00743DD3 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		EB76F5D318F0929E00743DD3 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		EB76F5D518F0929E00743DD3 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		EB76F5D618F0929E00743DD3 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		EB76F5D818F0929E00743DD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB76F5DE18F0929E00743DD3 /* CruznectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruznectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5DF18F0929E00743DD3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EB76F5E718F0929E00743DD3 /* CruznectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CruznectTests-Info.plist"; sourceTree = "<group>"; };
 		EB76F5E918F0929E00743DD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB76F5EB18F0929E00743DD3 /* CruznectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CruznectTests.m; sourceTree = "<group>"; };
+		EBCE961A18F0A70300834D58 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EBCE961B18F0A70300834D58 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +112,9 @@
 		EB76F5C318F0929E00743DD3 /* Cruznect */ = {
 			isa = PBXGroup;
 			children = (
-				EB76F5CC18F0929E00743DD3 /* AppDelegate.h */,
-				EB76F5CD18F0929E00743DD3 /* AppDelegate.m */,
 				EB76F5CF18F0929E00743DD3 /* Main.storyboard */,
-				EB76F5D218F0929E00743DD3 /* FirstViewController.h */,
-				EB76F5D318F0929E00743DD3 /* FirstViewController.m */,
-				EB76F5D518F0929E00743DD3 /* SecondViewController.h */,
-				EB76F5D618F0929E00743DD3 /* SecondViewController.m */,
+				EBCE961A18F0A70300834D58 /* LoginViewController.h */,
+				EBCE961B18F0A70300834D58 /* LoginViewController.m */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,
 			);
@@ -131,6 +124,8 @@
 		EB76F5C418F0929E00743DD3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB76F5CC18F0929E00743DD3 /* AppDelegate.h */,
+				EB76F5CD18F0929E00743DD3 /* AppDelegate.m */,
 				EB76F5C518F0929E00743DD3 /* Cruznect-Info.plist */,
 				EB76F5C618F0929E00743DD3 /* InfoPlist.strings */,
 				EB76F5C918F0929E00743DD3 /* main.m */,
@@ -254,10 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB76F5D718F0929E00743DD3 /* SecondViewController.m in Sources */,
 				EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */,
-				EB76F5D418F0929E00743DD3 /* FirstViewController.m in Sources */,
 				EB76F5CA18F0929E00743DD3 /* main.m in Sources */,
+				EBCE961C18F0A70300834D58 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +456,7 @@
 				EB76F5F118F0929E00743DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB76F5F218F0929E00743DD3 /* Build configuration list for PBXNativeTarget "CruznectTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +465,7 @@
 				EB76F5F418F0929E00743DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

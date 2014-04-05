@@ -1,0 +1,6 @@
+SELECT * 
+FROM project, project_required, talent 
+WHERE 
+project.id = project_required.project_id 
+AND talent.id = project_required.talent_id
+AND project.id = $id;

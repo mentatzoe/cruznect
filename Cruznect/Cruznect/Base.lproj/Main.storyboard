@@ -23,9 +23,9 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="208"/>
+            <point key="canvasLocation" x="1148" y="928"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - All Projects-->
         <scene sceneID="ioa-B5-rRy">
             <objects>
                 <tableViewController id="8IO-7f-xJt" sceneMemberID="viewController">
@@ -48,13 +48,13 @@
                             <outlet property="delegate" destination="8IO-7f-xJt" id="fvP-uH-EoP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="B1P-g7-Sen"/>
+                    <navigationItem key="navigationItem" title="All Projects" id="B1P-g7-Sen"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYy-IE-OTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2717" y="190"/>
+            <point key="canvasLocation" x="1669" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Settings-->
         <scene sceneID="joI-z0-Eyk">
             <objects>
                 <viewController id="tCb-X0-svr" sceneMemberID="viewController">
@@ -67,13 +67,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wrl-Eq-LE1"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Wrl-Eq-LE1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DsF-zD-5wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="934"/>
+            <point key="canvasLocation" x="1674" y="1826"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - My Projects-->
         <scene sceneID="Ypc-hC-w1y">
             <objects>
                 <tableViewController id="dio-Z8-Sie" sceneMemberID="viewController">
@@ -96,13 +96,15 @@
                             <outlet property="delegate" destination="dio-Z8-Sie" id="ecw-EB-lN6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OJo-BG-yc7"/>
+                    <navigationItem key="navigationItem" title="My Projects" id="OJo-BG-yc7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qeh-5V-hpz"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgB-2O-50M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235" y="878"/>
+            <point key="canvasLocation" x="2407" y="922"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - Featured Projects-->
         <scene sceneID="WJZ-Do-JBY">
             <objects>
                 <tableViewController id="RYG-ao-qlr" sceneMemberID="viewController">
@@ -125,11 +127,11 @@
                             <outlet property="delegate" destination="RYG-ao-qlr" id="Inz-Dx-b2G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lSw-wE-lhO"/>
+                    <navigationItem key="navigationItem" title="Featured Projects" id="lSw-wE-lhO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="38Z-vu-YRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661" y="-598"/>
+            <point key="canvasLocation" x="461" y="922"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MdY-Fp-IUd">
@@ -147,7 +149,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXq-fy-c6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="208"/>
+            <point key="canvasLocation" x="461" y="-812"/>
         </scene>
         <!--LoginTVC - Cruznect-->
         <scene sceneID="jC7-3o-l1s">
@@ -174,7 +176,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRe-GC-V3a">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRe-GC-V3a">
                                                     <rect key="frame" x="112" y="7" width="188" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -196,7 +198,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3F-04-qxW">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3F-04-qxW">
                                                     <rect key="frame" x="112" y="7" width="188" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -227,13 +229,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1O-Sv-k1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776" y="208"/>
+            <point key="canvasLocation" x="940" y="-812"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller-->
         <scene sceneID="e3q-T1-YZX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fzb-jW-8Uu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0rz-YG-h6g"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="0rz-YG-h6g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KXR-g1-fou">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -246,13 +248,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jd5-r0-rIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="-598"/>
+            <point key="canvasLocation" x="-65" y="922"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller-->
         <scene sceneID="kUv-5g-AO3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MEL-Ia-oFA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="JlU-6l-3wA"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="JlU-6l-3wA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u4a-o9-pkv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -265,13 +267,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQg-09-G9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2191" y="190"/>
+            <point key="canvasLocation" x="1143" y="134"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - My Projects-->
         <scene sceneID="f0L-VF-o43">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MY5-vK-aa9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qmF-44-dTz"/>
+                    <tabBarItem key="tabBarItem" title="My Projects" id="qmF-44-dTz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8tR-n6-29w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -284,13 +286,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbp-vh-sC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="878"/>
+            <point key="canvasLocation" x="1881" y="922"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Settings-->
         <scene sceneID="0Pk-7n-io4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYH-bj-eAG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ath-x6-U8m"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="VTUISettings.png" id="ath-x6-U8m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tib-k1-RyE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -303,9 +305,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Q9-6d-C2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="934"/>
+            <point key="canvasLocation" x="1148" y="1826"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="VTUISettings.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

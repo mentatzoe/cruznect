@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFB918F0AD7200FB9209 /* LoginTVC.m */; };
 		EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */; };
+		EB47FFC018F0B9CC00FB9209 /* VTUISettings.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFBE18F0B9CC00FB9209 /* VTUISettings.png */; };
+		EB47FFC118F0B9CC00FB9209 /* VTUISettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFBF18F0B9CC00FB9209 /* VTUISettings@2x.png */; };
 		EB76F5BE18F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
 		EB76F5C018F0929E00743DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */; };
 		EB76F5C218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
@@ -39,6 +41,8 @@
 		EB47FFB918F0AD7200FB9209 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
 		EB47FFBB18F0B15600FB9209 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
 		EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
+		EB47FFBE18F0B9CC00FB9209 /* VTUISettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VTUISettings.png; sourceTree = "<group>"; };
+		EB47FFBF18F0B9CC00FB9209 /* VTUISettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VTUISettings@2x.png"; sourceTree = "<group>"; };
 		EB76F5BA18F0929E00743DD3 /* Cruznect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cruznect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5BD18F0929E00743DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +124,8 @@
 				EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */,
 				EB47FFB818F0AD7200FB9209 /* LoginTVC.h */,
 				EB47FFB918F0AD7200FB9209 /* LoginTVC.m */,
+				EB47FFBE18F0B9CC00FB9209 /* VTUISettings.png */,
+				EB47FFBF18F0B9CC00FB9209 /* VTUISettings@2x.png */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,
 			);
@@ -233,7 +239,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB47FFC018F0B9CC00FB9209 /* VTUISettings.png in Resources */,
 				EB76F5D918F0929E00743DD3 /* Images.xcassets in Resources */,
+				EB47FFC118F0B9CC00FB9209 /* VTUISettings@2x.png in Resources */,
 				EB76F5C818F0929E00743DD3 /* InfoPlist.strings in Resources */,
 				EB76F5D118F0929E00743DD3 /* Main.storyboard in Resources */,
 			);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFB918F0AD7200FB9209 /* LoginTVC.m */; };
 		EB76F5BE18F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
 		EB76F5C018F0929E00743DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */; };
 		EB76F5C218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
@@ -20,7 +21,6 @@
 		EB76F5E218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
 		EB76F5EA18F0929E00743DD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5E818F0929E00743DD3 /* InfoPlist.strings */; };
 		EB76F5EC18F0929E00743DD3 /* CruznectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5EB18F0929E00743DD3 /* CruznectTests.m */; };
-		EBCE961C18F0A70300834D58 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCE961B18F0A70300834D58 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB47FFB818F0AD7200FB9209 /* LoginTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTVC.h; sourceTree = "<group>"; };
+		EB47FFB918F0AD7200FB9209 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
 		EB76F5BA18F0929E00743DD3 /* Cruznect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cruznect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5BD18F0929E00743DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,8 +53,6 @@
 		EB76F5E718F0929E00743DD3 /* CruznectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CruznectTests-Info.plist"; sourceTree = "<group>"; };
 		EB76F5E918F0929E00743DD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB76F5EB18F0929E00743DD3 /* CruznectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CruznectTests.m; sourceTree = "<group>"; };
-		EBCE961A18F0A70300834D58 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		EBCE961B18F0A70300834D58 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				EB76F5CF18F0929E00743DD3 /* Main.storyboard */,
-				EBCE961A18F0A70300834D58 /* LoginViewController.h */,
-				EBCE961B18F0A70300834D58 /* LoginViewController.m */,
+				EB47FFB818F0AD7200FB9209 /* LoginTVC.h */,
+				EB47FFB918F0AD7200FB9209 /* LoginTVC.m */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,
 			);
@@ -251,7 +251,7 @@
 			files = (
 				EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */,
 				EB76F5CA18F0929E00743DD3 /* main.m in Sources */,
-				EBCE961C18F0A70300834D58 /* LoginViewController.m in Sources */,
+				EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

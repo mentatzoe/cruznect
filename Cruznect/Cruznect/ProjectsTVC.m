@@ -55,7 +55,7 @@
 	dispatch_queue_t fetchQ = dispatch_queue_create("Cruznect Fetch", NULL);
     dispatch_async(fetchQ, ^{
         NSArray *talents = [CruznectRequest fetchProjectRequirementsWithProjectID:[project objectForKey:PROJECT_ID]];
-		UIImage *image = [CruznectRequest imageForURLString:[project objectForKey:PROJECT_IMAGE]];
+		UIImage *image = [CruznectRequest imageForProject:[project objectForKey:PROJECT_IMAGE]];
 		dispatch_async(dispatch_get_main_queue(), ^{
 			NSString *talentString = @"";
 			BOOL needComma = NO;
@@ -78,7 +78,6 @@
     });
 	
 	UITextView *detailTextView = (UITextView *)[cell viewWithTag:kDetailTextViewTag];
-
 	detailTextView.text = [project objectForKey:PROJECT_DESCRIPTION];
     
     return cell;
@@ -88,7 +87,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 100.0;
+	return 132.0;
 }
 
 @end

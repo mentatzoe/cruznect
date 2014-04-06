@@ -37,6 +37,6 @@
 
 + (void)postProjectWithPorjectInfo;
 
-+ (UIImage *)imageForURLString:(NSString *)string;
++ (UIImage *)imageForProject:(NSString *)projectID;
 
 @end

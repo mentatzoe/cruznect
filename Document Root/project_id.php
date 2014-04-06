@@ -20,7 +20,10 @@
 				<? echo get_project_talents($_GET["id"]);?>
 				<br/>
 								<br/>
-			<a href='#' class='project_btn' id='<?echo $_GET["id"];?>'>JOIN</a>
+				<form method="post" action="join.php">
+					<input type="hidden" name="project_id" value="<?echo $_GET["id"];?>"/>
+					<input type="submit" class="project_btn" value="I'm in!"/>
+				</form>
 			</div>
 		</div>
 	</div>

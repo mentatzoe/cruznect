@@ -199,4 +199,28 @@ function get_project_talents($id){
 			</table>";
 }
 
+function insert_user(){
+	$query = "";
+	$result = Query($query);
+	return $result;
+}
+
+function insert_user_talent(){
+	$query = "";
+	$result = Query($query);
+	return $result;
+}
+
+function insert_project(){
+	$query = "";
+	$result = Query($query);
+	return $result;
+}
+
+function insert_user_project($id_user, $id_project){
+	$query = "INSERT INTO user_projects (user_id, project_id) VALUES ($id_user, $id_project)";
+	$result = Query($query);
+	return $result;
+}
+
 ?>

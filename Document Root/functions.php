@@ -157,7 +157,7 @@ function print_rows($id){
 			<table class='main_content_table'>
 				<tr>
 					<td>
-						<img src='img/".$row["id"].".png' class='project_img'/>
+						<img src='".$row["imageURL"]."' class='project_img'/>
 					</td>
 					<td class='main_content_text'>
 					<h3> ".$row["name"]."</h3><br/>

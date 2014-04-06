@@ -1,6 +1,9 @@
+
 <div id="main">
-<h1>Connect with people at UCSC</h1>
-<h3>Share your passions.</h3>
+	<div id="main_front">
+		<h1>Connect with people at UCSC</h1>
+		<h3>Share your passions.</h3>
+	</div>
 	<div id="main_login">
 		<form method="post" action="login.php" id="main_login_form">
 				<div id="main_login_form_header">
@@ -41,19 +44,19 @@
 		<table>
 			<tr>
 				<td>
-					3
+					<?php echo get_talent_count(1); ?>
 				</td>
 				<td>
-					5
+					<?php echo get_talent_count(2); ?>
 				</td>
 				<td>
-					4
+					<?php echo get_talent_count(3); ?>
 				</td>
 				<td>
-					1
+					<?php echo get_talent_count(4); ?>
 				</td>
 				<td>
-					2
+					<?php echo get_talent_count(5); ?>
 				</td>
 			</tr>
 			<tr>

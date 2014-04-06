@@ -3,7 +3,7 @@
 
 	//recieve post variables
 	$email = $_POST["email"];
-	$password = $_POST["password"];
+	$password = md5($_POST["password"]);
 
 	//check if it exists
 	$query = sprintf("SELECT email, password FROM users WHERE email='$email'");

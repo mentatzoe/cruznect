@@ -8,6 +8,17 @@
 			<div id="project_content_whosin" >
 				<h3>Who's in?</h3>
 				<? echo get_project_people($_GET["id"]);?>
+				<div id="project_content_delete">
+				<?
+					if (is_owner($_GET["id"])){
+						?>
+						<br/>
+						<br/>
+						I want to <a href="delete.php?id=<? echo $_GET["id"];?>" class="tag">delete</a> this project.
+						<?
+					}
+				?>
+			</div>
 			</div>
 			
 			<div id="project_content_footer">
@@ -19,6 +30,7 @@
 					<input type="hidden" name="project_id" value="<?echo $_GET["id"];?>"/>
 					<input type="submit" class="project_btn" value="I'm in!"/>
 				</form>
+			
 			</div>
 		</div>
 	</div>

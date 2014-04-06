@@ -4,7 +4,7 @@ function getSQL(){
 	$DB_NAME = "hackathon";
 	$DB_HOST = "127.0.0.1";
 	$DB_USER = "root";
-	$DB_PASS = "root";
+	$DB_PASS = "";
 	
 	return new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 }
@@ -137,8 +137,19 @@ function getCount($talent){
 
 }
 
-function print_rows(){
-	$query = sprintf("SELECT * FROM projects");
+function print_rows($id){
+
+	if ($id == 0){
+	$query = sprintf("SELECT * FROM projects WHERE active = 1");
+	}
+	else {
+		$query = "SELECT project_id as id, projects.name as name, description, projects.imageURL as imageURL
+	FROM project_required, projects, talents 
+	WHERE project_required.project_id = projects.id
+	AND projects.active = 1
+	AND project_required.talent_id = talents.id
+	AND talents.id = $id";
+	}
 	$result = Query($query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "
@@ -146,12 +157,13 @@ function print_rows(){
 			<table class='main_content_table'>
 				<tr>
 					<td>
-						<img src='".$row["imageURL"]."' class='project_img'/>
+						<img src='img/".$row["id"].".png' class='project_img'/>
 					</td>
 					<td class='main_content_text'>
 					<h3> ".$row["name"]."</h3><br/>
 					".$row["description"]."
 					</td>
+					<td>".get_project_talents_tag($row["id"])."</td>
 					<td>
 						<a href='#' class='project_btn' id='".$row["id"]."'>JOIN</a>
 					</td>
@@ -174,6 +186,32 @@ function get_project_description($id){
 	$row = mysqli_fetch_assoc($result);
 	return $row["description"];
 }
+
+
+function get_project_talents_tag($id){
+	$query = "SELECT talents.id, talents.name, talents.imageurl, number_of_people 
+	FROM projects, project_required, talents 
+	WHERE projects.id = project_required.project_id
+	AND talents.id = project_required.talent_id
+	AND projects.id = $id";
+	$top_row = "";
+	$bottom_row = "";
+	$result = Query($query);
+	while ($row = mysqli_fetch_assoc($result)) {
+		$bottom_row .= "<td><a href='index.php?talent=".$row["id"]."' class='tag'>".$row["name"]." </a></td>";
+	}
+	
+	return "
+	<p class='main_content_text'><b>Talents needed:</b></p>
+	<table class='tag_table'>
+				<tbody>
+					<tr>
+					".$bottom_row."
+					</tr>
+				</tbody>
+			</table>";
+}
+
 
 function get_project_talents($id){
 	$query = "SELECT talents.name, talents.imageurl, number_of_people 
@@ -282,6 +320,25 @@ function is_owner($projectid){
 	} else {
 		return false;
 	}
+}
+
+function get_owner($projectid){
+	$query = "SELECT owner FROM projects WHERE id = $projectid";
+	$result = Query($query);
+	$row = $result->fetch_assoc();
+	return $row['owner'];
+}
+
+function get_talent_count($talentid){
+	$query = "SELECT * FROM project_required WHERE talent_id = $talentid";
+	$result = Query($query);
+	
+	$count=0;
+	while($row = mysqli_fetch_assoc($result)){
+		$count++;
+	}
+	return $count;
+
 }
 
 

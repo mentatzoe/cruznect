@@ -11,33 +11,88 @@ function getSQL(){
 
 function Query($query){
 	$sql = getSQL();
-	return $sql->query($query);
+	$result = $sql->query($query);
+	return $result;
 
 }
 
-function getPostList(){
+function getPostList($talents){
+
+	$tlist=join(',' , $talents);
+
+	echo $tlist;
 
 
-	$query = sprintf("SELECT * 
+	$query = sprintf("SELECT projects.id
 		FROM 
-		project, project_required, talent
+		projects, project_required, talents
 		WHERE 
-		project.id = project_required.product_id, 
-		talent.id = project_required.talent_id,
-		active='1'
+		projects.id=project_id
+		AND
+		talents.id=talent_id
+		AND
+		talents.name IN ($tlist)
 		");
 
-	$result = $sql->query($query);
+	
+
+	$result = Query($query);
+
 
 	if (!$result) {
     	//No projects avaliable
 	}
 
+	$count=0;
+
 	while ($row = mysqli_fetch_assoc($result)) {
-		//Store Entries into array
+		foreach($row as $key => $value) {
+    		echo " $key => $value \n";
+		}
+
+		$count++;
+		if($count>9){
+			break;
+		}
 	}
 		
 }
+
+function getTalents(){
+	$id=$_SESSION['id'];
+
+	$query = sprintf("SELECT talents.name
+		FROM 
+		users, user_talents, talents
+		WHERE 
+		users.id=$id 
+		AND
+		user_id=users.id
+		AND
+		talent_id=talents.id
+		");
+		//talents.id = user_talents.talent_id,
+		//users.active='1'
+		//");
+
+
+
+	echo "ok";
+
+	
+	$result = Query($query);
+	$column = array();
+
+	while($row  = mysqli_fetch_assoc($result)){
+		$str = $row['name'];
+		$column[] = "'$str'";
+	}
+
+	return $column;
+	
+
+}
+
 
 function Message($message){
 	//This wont work
@@ -72,4 +127,7 @@ function getCount($talent){
 }
 
 
+
 ?>
+
+

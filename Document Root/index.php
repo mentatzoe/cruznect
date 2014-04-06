@@ -2,14 +2,20 @@
 include 'functions.php';
 
 
+if($_SESSION['email']){
+	include 'logged.php';
+} else {
+	include 'unlogged.php';
+}
+
+?>
+
+<?php 
 $artists=getCount("artist");
 $musicians=getCount("music");
 $engineers=getCount("engineer");
 $message="$artists artists. $musicians musicians. $engineers software engineers.";
-
-
 ?>
-
 <html>
 <head>
 <!--Name and meta tags-->

@@ -15,24 +15,22 @@
     header('Location: index.php');
 	}
 
-	while ($row = mysqli_fetch_assoc($result)) {
+	$row = mysqli_fetch_assoc($result)) 
 		//Success of login in
     	if (strcmp($pass,$row['password'])==0)
     		login();
-
     	//Incorrect Password
     	else
     		incorrectPass();
 
-	}
 
 
 		function login(){
 			session_start();
-			$_SESSION['email']=$username;
+			$_SESSION['email']=$email;
 			
 			$status = 200;
-			$json = array("username" = $username, "status-code" = $status);
+			$json = array("email" = $email, "status-code" = $status);
 			echo json_encode( $json );
 
 			header( 'Location: index.php' ) ;

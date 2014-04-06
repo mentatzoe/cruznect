@@ -53,4 +53,15 @@
 		[self refresh];
 	}
 }
+
+#pragma mark - ProjectTVC delegate
+
+- (void)userDidDeleteProject:(NSDictionary *)project
+{
+	NSString *projectID = [project objectForKey:PROJECT_ID];
+	[CruznectRequest deleteProject:projectID];
+	[self.navigationController popViewControllerAnimated:YES];
+	[self refresh];
+}
+
 @end

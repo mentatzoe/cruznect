@@ -8,7 +8,7 @@
 
 #import "ProjectsTVC.h"
 
-@interface ProjectsTVC () <ProjectTVCDelegate>
+@interface ProjectsTVC ()
 
 @end
 
@@ -22,7 +22,6 @@
 		
 		ProjectTVC *projectTVC = segue.destinationViewController;
 		[projectTVC setProject:project];
-		[projectTVC setDelegate:self];
 		[projectTVC setCanDeleteProject:NO];
 	}
 }
@@ -62,15 +61,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return 132.0;
-}
-
-#pragma mark - ProjectTVC delegate
-
-- (void)userDidDeleteProject:(NSDictionary *)project
-{
-	NSString *projectID = [project objectForKey:PROJECT_ID];
-	[CruznectRequest deleteProject:projectID];
-	[self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

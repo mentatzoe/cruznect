@@ -44,12 +44,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self.projects count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.projects count];
+	return 1;
 }
 
 
@@ -58,7 +58,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Project"
 															forIndexPath:indexPath];
     
-	NSDictionary *project = [self.projects objectAtIndex:indexPath.row];
+	NSDictionary *project = [self.projects objectAtIndex:indexPath.section];
 	
 	UIImageView *imageView = (UIImageView *)[cell viewWithTag:kImageViewTag];
 	imageView.image = [CruznectRequest imageForProject:[project objectForKey:PROJECT_IMAGE]];
@@ -68,6 +68,13 @@
 	detailTextView.text = [project objectForKey:PROJECT_DESCRIPTION];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 132.0;
 }
 
 @end

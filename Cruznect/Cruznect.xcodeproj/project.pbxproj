@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFB918F0AD7200FB9209 /* LoginTVC.m */; };
+		EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */; };
+		EB47FFC818F0BCE600FB9209 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFC618F0BCE600FB9209 /* settings.png */; };
+		EB47FFC918F0BCE600FB9209 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFC718F0BCE600FB9209 /* settings@2x.png */; };
+		EB47FFD418F0BE6700FB9209 /* projects.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFD218F0BE6700FB9209 /* projects.png */; };
+		EB47FFD518F0BE6700FB9209 /* projects@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFD318F0BE6700FB9209 /* projects@2x.png */; };
+		EB47FFDC18F0C0CF00FB9209 /* CruznectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */; };
+		EB47FFDF18F0D33600FB9209 /* FeaturedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFDE18F0D33500FB9209 /* FeaturedTVC.m */; };
 		EB76F5BE18F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
 		EB76F5C018F0929E00743DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */; };
 		EB76F5C218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
@@ -14,8 +22,6 @@
 		EB76F5CA18F0929E00743DD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5C918F0929E00743DD3 /* main.m */; };
 		EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5CD18F0929E00743DD3 /* AppDelegate.m */; };
 		EB76F5D118F0929E00743DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5CF18F0929E00743DD3 /* Main.storyboard */; };
-		EB76F5D418F0929E00743DD3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5D318F0929E00743DD3 /* FirstViewController.m */; };
-		EB76F5D718F0929E00743DD3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5D618F0929E00743DD3 /* SecondViewController.m */; };
 		EB76F5D918F0929E00743DD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5D818F0929E00743DD3 /* Images.xcassets */; };
 		EB76F5E018F0929E00743DD3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5DF18F0929E00743DD3 /* XCTest.framework */; };
 		EB76F5E118F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
@@ -35,6 +41,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB47FFB818F0AD7200FB9209 /* LoginTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTVC.h; sourceTree = "<group>"; };
+		EB47FFB918F0AD7200FB9209 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
+		EB47FFBB18F0B15600FB9209 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
+		EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
+		EB47FFC618F0BCE600FB9209 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		EB47FFC718F0BCE600FB9209 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		EB47FFD218F0BE6700FB9209 /* projects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projects.png; sourceTree = "<group>"; };
+		EB47FFD318F0BE6700FB9209 /* projects@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "projects@2x.png"; sourceTree = "<group>"; };
+		EB47FFDA18F0C0CF00FB9209 /* CruznectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CruznectRequest.h; sourceTree = "<group>"; };
+		EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CruznectRequest.m; sourceTree = "<group>"; };
+		EB47FFDD18F0D33500FB9209 /* FeaturedTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedTVC.h; sourceTree = "<group>"; };
+		EB47FFDE18F0D33500FB9209 /* FeaturedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTVC.m; sourceTree = "<group>"; };
 		EB76F5BA18F0929E00743DD3 /* Cruznect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cruznect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5BD18F0929E00743DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,10 +64,6 @@
 		EB76F5CC18F0929E00743DD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB76F5CD18F0929E00743DD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EB76F5D018F0929E00743DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EB76F5D218F0929E00743DD3 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		EB76F5D318F0929E00743DD3 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		EB76F5D518F0929E00743DD3 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		EB76F5D618F0929E00743DD3 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		EB76F5D818F0929E00743DD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB76F5DE18F0929E00743DD3 /* CruznectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruznectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5DF18F0929E00743DD3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -82,6 +96,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB47FFD618F0BF9400FB9209 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				EB47FFC618F0BCE600FB9209 /* settings.png */,
+				EB47FFC718F0BCE600FB9209 /* settings@2x.png */,
+				EB47FFD218F0BE6700FB9209 /* projects.png */,
+				EB47FFD318F0BE6700FB9209 /* projects@2x.png */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
 		EB76F5B118F0929E00743DD3 = {
 			isa = PBXGroup;
 			children = (
@@ -115,14 +140,17 @@
 		EB76F5C318F0929E00743DD3 /* Cruznect */ = {
 			isa = PBXGroup;
 			children = (
-				EB76F5CC18F0929E00743DD3 /* AppDelegate.h */,
-				EB76F5CD18F0929E00743DD3 /* AppDelegate.m */,
 				EB76F5CF18F0929E00743DD3 /* Main.storyboard */,
-				EB76F5D218F0929E00743DD3 /* FirstViewController.h */,
-				EB76F5D318F0929E00743DD3 /* FirstViewController.m */,
-				EB76F5D518F0929E00743DD3 /* SecondViewController.h */,
-				EB76F5D618F0929E00743DD3 /* SecondViewController.m */,
+				EB47FFBB18F0B15600FB9209 /* RootTabBarController.h */,
+				EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */,
+				EB47FFB818F0AD7200FB9209 /* LoginTVC.h */,
+				EB47FFB918F0AD7200FB9209 /* LoginTVC.m */,
+				EB47FFDD18F0D33500FB9209 /* FeaturedTVC.h */,
+				EB47FFDE18F0D33500FB9209 /* FeaturedTVC.m */,
+				EB47FFDA18F0C0CF00FB9209 /* CruznectRequest.h */,
+				EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
+				EB47FFD618F0BF9400FB9209 /* User Interface */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,
 			);
 			path = Cruznect;
@@ -131,6 +159,8 @@
 		EB76F5C418F0929E00743DD3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB76F5CC18F0929E00743DD3 /* AppDelegate.h */,
+				EB76F5CD18F0929E00743DD3 /* AppDelegate.m */,
 				EB76F5C518F0929E00743DD3 /* Cruznect-Info.plist */,
 				EB76F5C618F0929E00743DD3 /* InfoPlist.strings */,
 				EB76F5C918F0929E00743DD3 /* main.m */,
@@ -233,8 +263,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB47FFC918F0BCE600FB9209 /* settings@2x.png in Resources */,
+				EB47FFC818F0BCE600FB9209 /* settings.png in Resources */,
 				EB76F5D918F0929E00743DD3 /* Images.xcassets in Resources */,
+				EB47FFD418F0BE6700FB9209 /* projects.png in Resources */,
 				EB76F5C818F0929E00743DD3 /* InfoPlist.strings in Resources */,
+				EB47FFD518F0BE6700FB9209 /* projects@2x.png in Resources */,
 				EB76F5D118F0929E00743DD3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,10 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB76F5D718F0929E00743DD3 /* SecondViewController.m in Sources */,
+				EB47FFDC18F0C0CF00FB9209 /* CruznectRequest.m in Sources */,
 				EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */,
-				EB76F5D418F0929E00743DD3 /* FirstViewController.m in Sources */,
+				EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */,
+				EB47FFDF18F0D33600FB9209 /* FeaturedTVC.m in Sources */,
 				EB76F5CA18F0929E00743DD3 /* main.m in Sources */,
+				EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +498,7 @@
 				EB76F5F118F0929E00743DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB76F5F218F0929E00743DD3 /* Build configuration list for PBXNativeTarget "CruznectTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +507,7 @@
 				EB76F5F418F0929E00743DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

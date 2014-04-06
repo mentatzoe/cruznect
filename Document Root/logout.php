@@ -1,5 +1,5 @@
 <?php 
 session_destroy();
 
-header('Location: TODO');
+header('Location: index.php');
 ?>

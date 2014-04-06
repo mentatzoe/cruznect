@@ -10,9 +10,18 @@
 
 @implementation AppDelegate
 
+- (void)setupLogin
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if (![defaults objectForKey:@"Login"]) {
+		[defaults setObject:[NSNumber numberWithBool:NO] forKey:@"Login"];
+	}
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	[self setupLogin];
+	
     return YES;
 }
 							

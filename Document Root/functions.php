@@ -16,28 +16,35 @@ function Query($query){
 
 }
 
-function getPostList($talents){
+//input[0] is the post number
+//input[1] is the array of talents
+function getPost($input){
 
-	$tlist=join(',' , $talents);
-
-	echo $tlist;
-
-
-	$query = sprintf("SELECT projects.id
-		FROM 
-		projects, project_required, talents
-		WHERE 
-		projects.id=project_id
-		AND
-		talents.id=talent_id
-		AND
-		talents.name IN ($tlist)
-		");
-
+	if($input[1]){
+		$tlist=join(',' , $input[1]);
+			$query = sprintf("SELECT projects.id
+			FROM 
+			projects, project_required, talents
+			WHERE 
+			projects.id=project_id
+			AND
+			talents.id=talent_id
+			AND
+			talents.id IN ($tlist)
+			");
+		}
+		else
+			$query = sprintf("SELECT projects.id
+			FROM 
+			projects, project_required, talents
+			WHERE 
+			projects.id=project_id
+			AND
+			talents.id=talent_id
+			");
 	
 
-	$result = Query($query);
-
+		$result = Query($query);
 
 	if (!$result) {
     	//No projects avaliable
@@ -46,14 +53,10 @@ function getPostList($talents){
 	$count=0;
 
 	while ($row = mysqli_fetch_assoc($result)) {
-		foreach($row as $key => $value) {
-    		echo " $key => $value \n";
-		}
+		if($count==$num)
+			return $row;
 
 		$count++;
-		if($count>9){
-			break;
-		}
 	}
 		
 }
@@ -61,7 +64,7 @@ function getPostList($talents){
 function getTalents(){
 	$id=$_SESSION['id'];
 
-	$query = sprintf("SELECT talents.name
+	$query = sprintf("SELECT talents.id
 		FROM 
 		users, user_talents, talents
 		WHERE 
@@ -76,15 +79,12 @@ function getTalents(){
 		//");
 
 
-
-	echo "ok";
-
 	
 	$result = Query($query);
 	$column = array();
 
 	while($row  = mysqli_fetch_assoc($result)){
-		$str = $row['name'];
+		$str = $row['id'];
 		$column[] = "'$str'";
 	}
 

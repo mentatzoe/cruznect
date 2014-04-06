@@ -62,6 +62,8 @@ h3{
 
 #main{
 	background-image: url(http://fc03.deviantart.net/fs48/i/2009/179/c/7/Bridge_to_UCSC_McHenry_Library_by_msl911.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
 	height: 100%;
 	padding-top: 150px;
 	color: #bbb;
@@ -71,6 +73,22 @@ h3{
 #main_count{
 	color: #111;
 	text-shadow: 3px 2px 4px #bbb;
+	background-color: #ccc;
+	width: 350px;
+	margin-left: 35%;
+	opacity: 0.9;
+	padding: 10px;
+	border:0px solid;
+	border-radius:20px;
+}
+
+.main_count_img{
+	width:66px;
+}
+
+#main_count table{
+	text-align: center;
+	font-size: 20pt;
 }
 
 #main_login{
@@ -79,9 +97,36 @@ h3{
 	left: 35%;
 	top: 10%;
 	width: 300px;
-	height: 500px;
-	opacity: 0.9;
+	opacity: 0.95;
 	z-index: 1;
 	display:none;
+	
 }
 
+#main_login_form{
+	padding: 10px;	
+}
+
+#main_login_form_header{
+	margin: -10px -10px 10px -10px;
+	padding: 5px;
+	background-color: #333;
+}
+
+#main_login_form_footer{
+	margin: 10px -10px -26px -10px;
+	padding: 10px 30px 5px 30px;
+	background-color: #333;
+}
+
+#main_register_form{
+	display: none;
+}
+
+.large_input{
+	width: 95%;
+	font-size: 12pt;
+	padding: 3px;
+	text-align: center;
+	margin: 0px 0px 5px 0px;
+}

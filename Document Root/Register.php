@@ -4,6 +4,7 @@
 	include 'functions.php';
 
 
+
 	//get post variables
 	$name=$_POST["name"];
 	$password=md5($_POST["password"]);
@@ -51,8 +52,6 @@
 		");
 		Query($query);
 	}
-
-
 
 
 

@@ -16,6 +16,7 @@
 @interface ProjectTVC : UITableViewController
 
 @property (strong, nonatomic) NSDictionary *project;
+
 @property (weak, nonatomic) id<ProjectTVCDelegate> delegate;
 
 @end

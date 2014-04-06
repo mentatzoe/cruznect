@@ -23,6 +23,7 @@
 		
 		ProjectTVC *projectTVC = segue.destinationViewController;
 		[projectTVC setProject:project];
+		
 		[projectTVC setDelegate:self];
 	}
 }

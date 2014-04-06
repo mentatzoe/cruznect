@@ -49,8 +49,15 @@
 + (NSArray *)fetchProjectRequirementsWithProjectID:(NSString *)projectID
 {
 	NSString *requestString =
-	[NSString stringWithFormat:@"ver0.2/ver0.2/?action_type=project&action=fetch_user_project&user_id=%@", projectID];
+	[NSString stringWithFormat:@"ver0.2/ver0.2/?action_type=project&action=fetch_project_requirements&project_id=%@", projectID];
     return [[self executeFetch:requestString] valueForKey:@"response"];
+}
+
++ (NSDictionary *)fetchUserWithUserID:(NSString *)userID
+{
+	NSString *requestString =
+	[NSString stringWithFormat:@"ver0.2/ver0.2/?action_type=user&action=fetch_user&user_id=%@", userID];
+    return [[[self executeFetch:requestString] valueForKey:@"response"] objectAtIndex:0];
 }
 
 + (void)postProjectWithPorjectInfo

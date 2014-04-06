@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	include 'functions.php';
 
@@ -43,4 +44,8 @@
 		}
 
 
+=======
+<?
+	var_dump($_POST);
+>>>>>>> 1d6fe82d4f4895b88d71307a222621b583b80ee9
 ?>

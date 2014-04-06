@@ -200,11 +200,10 @@ function get_project_talents_tag($id){
 		$bottom_row .= "<td><a href='index.php?talent=".$row["id"]."' class='tag'>".$row["name"]." </a></td>";
 	}
 	
-	return "<table>
+	return "
+	<p class='main_content_text'><b>Talents needed:</b></p>
+	<table class='tag_table'>
 				<tbody>
-					<tr>
-					".$top_row."					
-					</tr>
 					<tr>
 					".$bottom_row."
 					</tr>

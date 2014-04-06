@@ -4,7 +4,7 @@
 		if(!empty($_GET["talent"])){
 		print_rows($_GET["talent"]);
 		?>
-		<a href="index.php">See all projects</a>
+		<a href="index.php" class="tag">See all projects</a>
 		<?
 		}	
 		else{

@@ -7,37 +7,24 @@
 //
 
 #import "ProjectsTVC.h"
+#import "ProjectTVC.h"
 
-@interface ProjectsTVC ()
+@interface ProjectsTVC () <ProjectTVCDelegate>
 
 @end
 
 @implementation ProjectsTVC
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	if ([segue.identifier isEqualToString:@"Project"]) {
+		NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+		NSDictionary *project = [self.projects objectAtIndex:indexPath.section];
+		
+		ProjectTVC *projectTVC = segue.destinationViewController;
+		[projectTVC setProject:project];
+		[projectTVC setDelegate:self];
+	}
 }
 
 #pragma mark - Table view data source

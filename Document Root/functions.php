@@ -202,12 +202,16 @@ function get_project_talents($id){
 }
 
 function get_project_people($id){
-	$query = "SELECT name FROM user_projects, users WHERE user_projects.user_id = users.id AND project_id = $id";
+	$query = "SELECT name, email FROM user_projects, users WHERE user_projects.user_id = users.id AND project_id = $id";
 	$result = Query($query);
 	$people_list = "";
 	if ($result->num_rows > 0){
 		while($row = $result->fetch_assoc()){
-			$people_list .= "<li>".$row["name"]."</li>";
+			$people_list .= "<li>".$row["name"];
+			if (is_owner($id)){
+				$people_list .= " - ". $row["email"];
+			}
+			$people_list .= "</li>";
 		}
 		$people_list = "<ul>" .$people_list. "</ul>";
 	} else {
@@ -258,7 +262,6 @@ function get_project_id($name){
 }
 
 function get_talents_form(){
-	
 	$query = "SELECT * FROM talents";
 	$result = Query($query);
 	
@@ -267,8 +270,19 @@ function get_talents_form(){
 		$output .= "<input type='checkbox' name='talents[]' value=".$row["id"].">".$row["name"]."<br/>";
 	}
 	
-	return $output;
-	
+	return $output;	
 }
+
+function is_owner($projectid){
+	$query = "SELECT owner FROM projects WHERE id = $projectid";
+	$result = Query($query);
+	$row = $result->fetch_assoc();
+	if(get_user_id($_COOKIE['email'])  == $row["owner"]){
+		return true;
+	} else {
+		return false;
+	}
+}
+
 
 ?>

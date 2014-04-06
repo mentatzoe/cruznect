@@ -46,6 +46,13 @@
     return [[self executeFetch:requestString] valueForKey:@"response"];
 }
 
++ (NSArray *)fetchProjectRequirementsWithProjectID:(NSString *)projectID
+{
+	NSString *requestString =
+	[NSString stringWithFormat:@"ver0.2/ver0.2/?action_type=project&action=fetch_user_project&user_id=%@", projectID];
+    return [[self executeFetch:requestString] valueForKey:@"response"];
+}
+
 + (void)postProjectWithPorjectInfo
 {
 	

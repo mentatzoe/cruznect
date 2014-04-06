@@ -34,6 +34,8 @@
 		EB76F5EA18F0929E00743DD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB76F5E818F0929E00743DD3 /* InfoPlist.strings */; };
 		EB76F5EC18F0929E00743DD3 /* CruznectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5EB18F0929E00743DD3 /* CruznectTests.m */; };
 		EBDC726D18F1105900EB1BED /* ProjectTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDC726C18F1105900EB1BED /* ProjectTVC.m */; };
+		EBDC727018F117A300EB1BED /* RecentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDC726F18F117A300EB1BED /* RecentsTVC.m */; };
+		EBDC727318F117AE00EB1BED /* MyProjectsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDC727218F117AE00EB1BED /* MyProjectsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,10 @@
 		EB76F5EB18F0929E00743DD3 /* CruznectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CruznectTests.m; sourceTree = "<group>"; };
 		EBDC726B18F1105900EB1BED /* ProjectTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTVC.h; sourceTree = "<group>"; };
 		EBDC726C18F1105900EB1BED /* ProjectTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTVC.m; sourceTree = "<group>"; };
+		EBDC726E18F117A300EB1BED /* RecentsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsTVC.h; sourceTree = "<group>"; };
+		EBDC726F18F117A300EB1BED /* RecentsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsTVC.m; sourceTree = "<group>"; };
+		EBDC727118F117AE00EB1BED /* MyProjectsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectsTVC.h; sourceTree = "<group>"; };
+		EBDC727218F117AE00EB1BED /* MyProjectsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,10 @@
 				EB47FFE418F0F36A00FB9209 /* ProjectsTVC.m */,
 				EB47FFDD18F0D33500FB9209 /* FeaturedTVC.h */,
 				EB47FFDE18F0D33500FB9209 /* FeaturedTVC.m */,
+				EBDC726E18F117A300EB1BED /* RecentsTVC.h */,
+				EBDC726F18F117A300EB1BED /* RecentsTVC.m */,
+				EBDC727118F117AE00EB1BED /* MyProjectsTVC.h */,
+				EBDC727218F117AE00EB1BED /* MyProjectsTVC.m */,
 				EBDC726B18F1105900EB1BED /* ProjectTVC.h */,
 				EBDC726C18F1105900EB1BED /* ProjectTVC.m */,
 				EB47FFDA18F0C0CF00FB9209 /* CruznectRequest.h */,
@@ -332,10 +342,12 @@
 			files = (
 				EB47FFDC18F0C0CF00FB9209 /* CruznectRequest.m in Sources */,
 				EB76F5CE18F0929E00743DD3 /* AppDelegate.m in Sources */,
+				EBDC727018F117A300EB1BED /* RecentsTVC.m in Sources */,
 				EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */,
 				EBDC726D18F1105900EB1BED /* ProjectTVC.m in Sources */,
 				EB47FFE518F0F36A00FB9209 /* ProjectsTVC.m in Sources */,
 				EB47FFDF18F0D33600FB9209 /* FeaturedTVC.m in Sources */,
+				EBDC727318F117AE00EB1BED /* MyProjectsTVC.m in Sources */,
 				EB76F5CA18F0929E00743DD3 /* main.m in Sources */,
 				EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */,
 			);

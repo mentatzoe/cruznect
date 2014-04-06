@@ -1,5 +1,5 @@
 //
-//  FeaturedTVC.h
+//  RecentsTVC.h
 //  Cruznect
 //
 //  Created by Bruce•D•Su on 4/5/14.
@@ -8,6 +8,6 @@
 
 #import "ProjectsTVC.h"
 
-@interface FeaturedTVC : ProjectsTVC
+@interface RecentsTVC : ProjectsTVC
 
 @end

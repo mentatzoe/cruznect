@@ -1,18 +1,18 @@
 //
-//  FeaturedTVC.m
+//  MyProjectsTVC.m
 //  Cruznect
 //
 //  Created by Bruce•D•Su on 4/5/14.
 //  Copyright (c) 2014 Cruznect. All rights reserved.
 //
 
-#import "FeaturedTVC.h"
+#import "MyProjectsTVC.h"
 
-@interface FeaturedTVC ()
+@interface MyProjectsTVC ()
 
 @end
 
-@implementation FeaturedTVC
+@implementation MyProjectsTVC
 
 - (void)refresh
 {
@@ -20,7 +20,7 @@
     dispatch_queue_t fetchQ = dispatch_queue_create("Cruznect Fetch", NULL);
     dispatch_async(fetchQ, ^{
         self.projects =
-		[CruznectRequest fetchFeaturedProjectsWithUserID:[[NSUserDefaults standardUserDefaults]
+		[CruznectRequest fetchUserProjectsWithUserID:[[NSUserDefaults standardUserDefaults]
 														  objectForKey:@"userID"]];
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.tableView reloadData];
@@ -40,5 +40,4 @@
 		[self refresh];
 	}
 }
-
 @end

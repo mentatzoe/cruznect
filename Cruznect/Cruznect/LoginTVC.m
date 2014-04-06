@@ -38,8 +38,7 @@
 	[self.emailTextField becomeFirstResponder];
 }
 
-//NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
-NSString * const kLoginScriptURLString = @"http://localhost/logintest.php";
+NSString * const kLoginScriptURLString = @"http://localhost/ver0.2/ver0.2/?action_type=user&action=login";
 
 - (BOOL)executeRequestWithRequestBody:(NSString *)requestBody
 {
@@ -53,15 +52,13 @@ NSString * const kLoginScriptURLString = @"http://localhost/logintest.php";
     
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
     
-	NSError *error;
+    NSDictionary *results = data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:nil] : nil;
 	
-    NSDictionary *results = data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-	
-    NSLog(@"%@", error);
 	NSLog(@"%@", results);
 	
     if ([[results objectForKey:@"status-code"] isEqual:[NSNumber numberWithInt:200]]) {
-		self.userID = [results objectForKey:@"id"];
+		NSDictionary *response = [results valueForKey:@"response"];
+		self.userID = [response objectForKey:@"id"];
         return YES;
     } else {
         return NO;
@@ -124,10 +121,8 @@ NSString * const kLoginErrorAlertMessage = @"Check you email and password";
     
     dispatch_queue_t verifyQ = dispatch_queue_create("Cruznect Verify", NULL);
     dispatch_async(verifyQ, ^{
-//		BOOL login =
+		BOOL login =
 		[self executeRequestWithRequestBody:requestBody];
-		
-		BOOL login = YES;
 		
         dispatch_async(dispatch_get_main_queue(), ^{
             if (login) {

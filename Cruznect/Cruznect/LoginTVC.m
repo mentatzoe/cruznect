@@ -124,9 +124,10 @@ NSString * const kLoginErrorAlertMessage = @"Check you email and password";
     
     dispatch_queue_t verifyQ = dispatch_queue_create("Cruznect Verify", NULL);
     dispatch_async(verifyQ, ^{
-		BOOL login = [self executeRequestWithRequestBody:requestBody];
+//		BOOL login =
+		[self executeRequestWithRequestBody:requestBody];
 		
-//		BOOL login = YES;
+		BOOL login = YES;
 		
         dispatch_async(dispatch_get_main_queue(), ^{
             if (login) {

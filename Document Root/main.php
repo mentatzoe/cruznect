@@ -26,10 +26,7 @@
 	   			<input type="radio" name="active" value="1">Yes!
 	   			<input type="radio" name="active" value="0">No, I've got my own.<br/><br/>
 	   			<label for="talents[]">What's your main skillset? <br/> (select as many as you want!)</label><br/>
-	   			<!--This will be populated from the talents database-->
-	   			<input type="checkbox" name="talents[]" value="Talent_id">Talent.name<br/>
-	   			<input type="checkbox" name="talents[]" value="Talent_id2">Talent.name<br/>
-	   			<input type="checkbox" name="talents[]" value="Talent_id3">Talent.name<br/>
+	   			<? get_talents_form(); ?>
 	   			<div id="main_login_form_footer">
 		   			<input type="submit" value="Register!" />
 		   			Wait, no! I want to <a href="#" id="login">log in!</a><br/>

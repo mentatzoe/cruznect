@@ -12,8 +12,10 @@ function getSQL(){
 function Query($query){
 	$sql = getSQL();
 	$result = $sql->query($query);
+	if(!$result){
+	    die('There was an error running the query [' . $sql->error . ']. The query was ' .$query);
+	}
 	return $result;
-
 }
 
 //input[0] is the post number
@@ -228,8 +230,9 @@ function insert_user_talent(){
 	return $result;
 }
 
-function insert_project(){
-	$query = "";
+function insert_project($name, $description){
+	$user_id = get_user_id($_COOKIE['email']);
+	$query = "INSERT INTO projects(name, description, owner, active) VALUES ('$name','$description',$user_id,1);";
 	$result = Query($query);
 	return $result;
 }
@@ -238,6 +241,34 @@ function insert_user_project($id_user, $id_project){
 	$query = "INSERT INTO user_projects (user_id, project_id) VALUES ($id_user, $id_project)";
 	$result = Query($query);
 	return $result;
+}
+
+function get_user_id($email){
+	$query = "SELECT id FROM users WHERE email= '$email'";
+		$result = Query($query);
+		$row = mysqli_fetch_assoc($result);
+		return $row["id"];
+}
+
+function get_project_id($name){
+	$query = "SELECT id FROM projects WHERE name= '$name'";
+		$result = Query($query);
+		$row = mysqli_fetch_assoc($result);
+		return $row["id"];
+}
+
+function get_talents_form(){
+	
+	$query = "SELECT * FROM talents";
+	$result = Query($query);
+	
+	$output = "";
+	while ($row = $result->fetch_assoc()){
+		$output .= "<input type='checkbox' name='talents[]' value=".$row["id"].">".$row["name"]."<br/>";
+	}
+	
+	return $output;
+	
 }
 
 ?>

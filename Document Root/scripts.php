@@ -10,6 +10,17 @@ $("#header_login").click(
 	}
 );
 
+$("#header_project").click(
+	function(){
+		if($("#header_add_project").is(":visible")){
+			$("#header_add_project").hide("slow");
+		}
+		else{
+			$("#header_add_project").show("slow");		
+		}
+	}
+);
+
 $("#register").click(
 	function(){
 		if($("#main_login_form").is(":visible")){

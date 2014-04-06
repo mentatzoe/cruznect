@@ -108,6 +108,19 @@ h3{
 	
 }
 
+#header_add_project{
+	position: absolute;
+	background-color: gray;
+	left: 35%;
+	top: 10%;
+	width: 300px;
+	opacity: 0.95;
+	z-index: 1;
+	display:none;
+	
+}
+
+
 #main_login_form{
 	padding: 10px;	
 }
@@ -126,6 +139,23 @@ h3{
 
 #main_register_form{
 	display: none;
+}
+
+#add_project_form{
+color: #bbb;
+	text-shadow: 3px 2px 4px #222;
+}
+
+#header_add_form_header{
+	margin: -10px 0px 10px 0px;
+	padding: 5px;
+	background-color: #333;
+}
+
+#header_add_form_footer{
+	margin: 15px 0px;
+	padding: 10px 30px 5px 30px;
+	background-color: #333;
 }
 
 .large_input{

@@ -199,6 +199,23 @@ function get_project_talents($id){
 			</table>";
 }
 
+function get_project_people($id){
+	$query = "SELECT name FROM user_projects, users WHERE user_projects.user_id = users.id AND project_id = $id";
+	$result = Query($query);
+	$people_list = "";
+	if ($result->num_rows > 0){
+		while($row = $result->fetch_assoc()){
+			$people_list .= "<li>".$row["name"]."</li>";
+		}
+		$people_list = "<ul>" .$people_list. "</ul>";
+	} else {
+		$people_list = "Be the first to join!";
+	}
+	
+	return $people_list;
+	
+}
+
 function insert_user(){
 	$query = "";
 	$result = Query($query);

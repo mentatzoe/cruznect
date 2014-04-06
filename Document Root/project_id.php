@@ -7,12 +7,7 @@
 			<br/>
 			<div id="project_content_whosin" >
 				<h3>Who's in?</h3>
-				<ul>
-					<li>Human being - Talent</li>
-					<li>Human being - Talent</li>
-					<li>Human being - Talent</li>
-					<li>Human being - Talent</li>
-				</ul>
+				<? echo get_project_people($_GET["id"]);?>
 			</div>
 			
 			<div id="project_content_footer">

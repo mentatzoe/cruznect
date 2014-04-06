@@ -15,14 +15,14 @@
     query = [NSString stringWithFormat:@"%@%@", BASE_URL, query];
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
+//    NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
     
     NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
     
-    NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
+//    NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
     
     return results;
 }
@@ -72,9 +72,12 @@
 	
 }
 
-+ (UIImage *)imageForProject:(NSString *)projectID
++ (UIImage *)imageForURLString:(NSString *)string
 {
-	return nil;
+	NSString *urlString = [NSString stringWithFormat:@"%@document/%@", BASE_URL, string];
+	NSLog(@"%@", urlString);
+	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+	return [UIImage imageWithData:imageData];
 }
 
 @end

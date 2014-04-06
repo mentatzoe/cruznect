@@ -148,7 +148,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 		case LOGO_AND_TITLE: {
 			cell = [self.tableView dequeueReusableCellWithIdentifier:kLogoAndTitleCellID];
 			UIImageView *imageView = (UIImageView *)[cell viewWithTag:kLogoImageViewTag];
-			imageView.image = [CruznectRequest imageForProject:[self.project objectForKey:PROJECT_ID]];
+			imageView.image = [CruznectRequest imageForURLString:[self.project objectForKey:PROJECT_IMAGE]];
 			UILabel *titleLabel = (UILabel *)[cell viewWithTag:kTitleLabelTag];
 			titleLabel.text = [self.project objectForKey:PROJECT_NAME];
 			break;

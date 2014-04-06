@@ -11,7 +11,7 @@
 		<form method="post" action="login.php" id="main_login_form">
 				<div id="main_login_form_header">
 					<h3>Log in</h3>
-					Or do you want to <a href="#" id="register">Register</a>?
+					Or do you want to <a href="#" class="tag" id="register">Register</a>?
 	   			</div>
 	   			<input type="text" id="email" name="email" placeholder="@ucsc.edu" class="large_input" />
 	   			<input type="password" id="password" name="password" placeholder="Password" class="large_input" />
@@ -35,7 +35,7 @@
 	   			<? get_talents_form(); ?>
 	   			<div id="main_login_form_footer">
 		   			<input type="submit" value="Register!" />
-		   			Wait, no! I want to <a href="#" id="login">log in!</a><br/>
+		   			Wait, no! I want to <a class="tag" href="#" id="login">log in!</a><br/>
 	   			</div>
 		</form>
 	</div>

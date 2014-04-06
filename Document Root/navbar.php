@@ -22,7 +22,7 @@
 			   			<? echo get_talents_form(); ?>
 			   			</div>
 			   			<div id="header_add_form_footer">
-				   			<input type="submit" value="Register!" />
+				   			<input type="submit" value="Register!"/>
 			   			</div>
 		   			</form>
 	   			</div>

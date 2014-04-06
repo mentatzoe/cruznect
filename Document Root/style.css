@@ -126,19 +126,20 @@ h3{
 	opacity: 0.95;
 	z-index: 1;
 	display:none;
-	text-shadow: 3px 2px 4px #222;
+	text-shadow: 5px 3px 6px #222;
 	
 }
 
 #header_add_project{
 	position: absolute;
 	background-color: gray;
-	left: 35%;
-	top: 10%;
+left: 10%;
+top: 120%;
 	width: 300px;
 	opacity: 0.95;
 	z-index: 1;
 	display:none;
+	box-shadow: 0px 4px 4px #222;
 	
 }
 

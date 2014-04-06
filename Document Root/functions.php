@@ -139,7 +139,8 @@ function print_rows(){
 	$query = sprintf("SELECT * FROM projects");
 	$result = Query($query);
 	while ($row = mysqli_fetch_assoc($result)) {
-		echo "<div class='main_content_row'>
+		echo "
+		<a href='project.php?id=".$row['id']."'><div class='main_content_row'>
 			<table class='main_content_table'>
 				<tr>
 					<td>
@@ -154,9 +155,48 @@ function print_rows(){
 					</td>
 				</tr>
 			</table>
-		</div>";
+		</div></a>";
 			}
 }
 
+function get_project_name($id){
+	$query = "SELECT name FROM projects WHERE id = $id";
+	$result = Query($query);
+	$row = mysqli_fetch_assoc($result);
+	return $row["name"];
+}
+
+function get_project_description($id){
+	$query = "SELECT description FROM projects WHERE id = $id";
+	$result = Query($query);
+	$row = mysqli_fetch_assoc($result);
+	return $row["description"];
+}
+
+function get_project_talents($id){
+	$query = "SELECT talents.name, talents.imageurl, number_of_people 
+	FROM projects, project_required, talents 
+	WHERE projects.id = project_required.project_id
+	AND talents.id = project_required.talent_id
+	AND projects.id = $id";
+	$top_row = "";
+	$bottom_row = "";
+	$result = Query($query);
+	while ($row = mysqli_fetch_assoc($result)) {
+		$top_row .= "<td>".$row["number_of_people"]."</td>";
+		$bottom_row .= "<td><img src=".$row["imageurl"]." class='project_content_img' /></td>";
+	}
+	
+	return "<table>
+				<tbody>
+					<tr>
+					".$top_row."					
+					</tr>
+					<tr>
+					".$bottom_row."
+					</tr>
+				</tbody>
+			</table>";
+}
 
 ?>

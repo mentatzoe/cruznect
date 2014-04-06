@@ -1,3 +1,4 @@
+
 <div id="main">
 	<div id="main_front">
 		<h1>Connect with people at UCSC</h1>
@@ -43,19 +44,19 @@
 		<table>
 			<tr>
 				<td>
-					3
+					<?php echo get_talent_count(1); ?>
 				</td>
 				<td>
-					5
+					<?php echo get_talent_count(2); ?>
 				</td>
 				<td>
-					4
+					<?php echo get_talent_count(3); ?>
 				</td>
 				<td>
-					1
+					<?php echo get_talent_count(4); ?>
 				</td>
 				<td>
-					2
+					<?php echo get_talent_count(5); ?>
 				</td>
 			</tr>
 			<tr>

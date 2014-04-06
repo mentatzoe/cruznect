@@ -4,7 +4,7 @@ function getSQL(){
 	$DB_NAME = "hackathon";
 	$DB_HOST = "127.0.0.1";
 	$DB_USER = "root";
-	$DB_PASS = "root";
+	$DB_PASS = "";
 	
 	return new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 }
@@ -157,7 +157,7 @@ function print_rows($id){
 			<table class='main_content_table'>
 				<tr>
 					<td>
-						<img src='".$row["imageURL"]."' class='project_img'/>
+						<img src='img/".$row["id"].".png' class='project_img'/>
 					</td>
 					<td class='main_content_text'>
 					<h3> ".$row["name"]."</h3><br/>
@@ -327,6 +327,18 @@ function get_owner($projectid){
 	$result = Query($query);
 	$row = $result->fetch_assoc();
 	return $row['owner'];
+}
+
+function get_talent_count($talentid){
+	$query = "SELECT * FROM project_required WHERE talent_id = $talentid";
+	$result = Query($query);
+	
+	$count=0;
+	while($row = mysqli_fetch_assoc($result)){
+		$count++;
+	}
+	return $count;
+
 }
 
 

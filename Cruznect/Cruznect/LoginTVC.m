@@ -16,7 +16,7 @@
 
 @implementation LoginTVC
 
-NSString * const kLoginScriptURLString = @"";
+NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
 
 - (BOOL)executeRequestWithRequestBody:(NSString *)requestBody
 {
@@ -70,9 +70,9 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
     
     dispatch_queue_t verifyQ = dispatch_queue_create("Cruznect Verify", NULL);
     dispatch_async(verifyQ, ^{
-        BOOL login = [self executeRequestWithRequestBody:requestBody];
+//        BOOL login = [self executeRequestWithRequestBody:requestBody];
 		
-		login = YES;
+		BOOL login = YES;
 		
         dispatch_async(dispatch_get_main_queue(), ^{
             if (login) {

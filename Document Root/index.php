@@ -1,4 +1,5 @@
 <?
+$login = true;
 	include "header.php";
 	include "navbar.php";
 if($login){

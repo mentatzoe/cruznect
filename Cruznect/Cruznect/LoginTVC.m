@@ -9,7 +9,7 @@
 #import "LoginTVC.h"
 
 @interface LoginTVC ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) UIAlertView *loginErrorAlertView;
 @end
@@ -62,10 +62,10 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
 
 - (IBAction)loginButtonPressed:(id)sender
 {
-	NSString *usernameString = self.usernameTextField.text;
+	NSString *emailString = self.emailTextField.text;
 	NSString *passwordString = self.passwordTextField.text;
 	
-	NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@", usernameString, passwordString];
+	NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@", emailString, passwordString];
     
 	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner startAnimating];
@@ -84,8 +84,8 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
 												 style:UIBarButtonItemStyleBordered
 												target:nil
 												action:nil];
-				[self.delegate loginSucceedWithUsername:usernameString
-											andPassword:passwordString];
+				[self.delegate loginSucceedWithEmail:emailString
+										 andPassword:passwordString];
             } else {
 				self.navigationItem.rightBarButtonItem = sender;
                 [self.loginErrorAlertView show];

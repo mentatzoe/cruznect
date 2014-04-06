@@ -246,8 +246,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="xRe-GC-V3a" id="Jrs-i7-gmK"/>
                         <outlet property="passwordTextField" destination="T3F-04-qxW" id="WDp-fo-frY"/>
-                        <outlet property="usernameTextField" destination="xRe-GC-V3a" id="Y4T-UW-FbL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1O-Sv-k1y" userLabel="First Responder" sceneMemberID="firstResponder"/>

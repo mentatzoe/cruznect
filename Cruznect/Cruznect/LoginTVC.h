@@ -12,7 +12,7 @@
 
 @protocol LoginTVCDelegate <NSObject>
 
-- (void)loginSucceedWithUsername:(NSString *)username
+- (void)loginSucceedWithEmail:(NSString *)email
 					 andPassword:(NSString *)password;
 
 @end

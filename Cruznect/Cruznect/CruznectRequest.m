@@ -10,11 +10,11 @@
 
 @implementation CruznectRequest
 
-NSString * const baseScriptURLString = @"/";
+NSString * const baseScriptURLString = @"http://localhost/ver0.2/ver0.2/?";
 
 + (NSDictionary *)executeFetch:(NSString *)query
 {
-    query = [NSString stringWithFormat:@"baseScriptURLString%@", query];
+    query = [NSString stringWithFormat:@"%@%@", baseScriptURLString, query];
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
@@ -37,13 +37,14 @@ NSString * const baseScriptURLString = @"/";
 
 + (NSArray *)fetchAllProjectsWithUserID:(NSString *)userID
 {
-    NSString *requestString = @"";
+    NSString *requestString = @"action_type=project&action=fetch_all";
     return [[self executeFetch:requestString] valueForKey:@"response"];
 }
 
 + (NSArray *)fetchUserProjectsWithUserID:(NSString *)userID
 {
-	NSString *requestString = @"";
+	NSString *requestString =
+	[NSString stringWithFormat:@"action_type=project&action=fetch_user_project&user_id=%@", userID];
     return [[self executeFetch:requestString] valueForKey:@"response"];
 }
 

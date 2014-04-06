@@ -1,6 +1,8 @@
 <div id="main">
-<h1>Connect with people at UCSC</h1>
-<h3>Share your passions.</h3>
+	<div id="main_front">
+		<h1>Connect with people at UCSC</h1>
+		<h3>Share your passions.</h3>
+	</div>
 	<div id="main_login">
 		<form method="post" action="login.php" id="main_login_form">
 				<div id="main_login_form_header">

@@ -137,8 +137,18 @@ function getCount($talent){
 
 }
 
-function print_rows(){
+function print_rows($id){
+
+	if ($id == 0){
 	$query = sprintf("SELECT * FROM projects");
+	}
+	else {
+		$query = "SELECT project_id as id, projects.name as name, description, projects.imageURL as imageURL
+	FROM project_required, projects, talents 
+	WHERE project_required.project_id = projects.id
+	AND project_required.talent_id = talents.id
+	AND talents.id = $id";
+	}
 	$result = Query($query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "
@@ -152,6 +162,7 @@ function print_rows(){
 					<h3> ".$row["name"]."</h3><br/>
 					".$row["description"]."
 					</td>
+					<td>".get_project_talents_tag($row["id"])."</td>
 					<td>
 						<a href='#' class='project_btn' id='".$row["id"]."'>JOIN</a>
 					</td>
@@ -174,6 +185,33 @@ function get_project_description($id){
 	$row = mysqli_fetch_assoc($result);
 	return $row["description"];
 }
+
+
+function get_project_talents_tag($id){
+	$query = "SELECT talents.id, talents.name, talents.imageurl, number_of_people 
+	FROM projects, project_required, talents 
+	WHERE projects.id = project_required.project_id
+	AND talents.id = project_required.talent_id
+	AND projects.id = $id";
+	$top_row = "";
+	$bottom_row = "";
+	$result = Query($query);
+	while ($row = mysqli_fetch_assoc($result)) {
+		$bottom_row .= "<td><a href='index.php?talent=".$row["id"]."' class='tag'>".$row["name"]." </a></td>";
+	}
+	
+	return "<table>
+				<tbody>
+					<tr>
+					".$top_row."					
+					</tr>
+					<tr>
+					".$bottom_row."
+					</tr>
+				</tbody>
+			</table>";
+}
+
 
 function get_project_talents($id){
 	$query = "SELECT talents.name, talents.imageurl, number_of_people 

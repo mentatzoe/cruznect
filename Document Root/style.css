@@ -63,7 +63,8 @@ h3{
 #main{
 	background-image: url(http://fc03.deviantart.net/fs48/i/2009/179/c/7/Bridge_to_UCSC_McHenry_Library_by_msl911.jpg);
 	background-repeat: no-repeat;
-	background-position: left top;
+	background-position: center center;
+	background-size: 100%;
 	height: 100%;
 	padding-top: 150px;
 	color: #bbb;

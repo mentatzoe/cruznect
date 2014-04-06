@@ -1,0 +1,19 @@
+SELECT * 
+FROM project, project_required, talent 
+WHERE 
+project.id = project_required.project_id 
+AND talent.id = project_required.talent_id
+AND project.id = $id;
+
+<?
+		//<form method="post" action="login.php" id="main_login_form">
+		//   			<input type="text" id="email" name="email" placeholder="@ucsc.edu"/>
+		//   			<input type="password" id="password" name="password" placeholder="Password"/>
+		//   			<label for="remember">Remember me?</label>
+		//   			<input type="checkbox" id="remember" name="remember" class="main_login_form_checkbox" />
+		//   			
+		//</form>?>
+		
+		
+		<input type="checkbox" id="remember" name="remember" class="main_login_form_checkbox" />
+		   			<label for="remember">Remember me?</label>

@@ -35,10 +35,20 @@ NSString * const baseScriptURLString = @"/";
     return [[self executeFetch:requestString] valueForKey:@"response"];
 }
 
-+ (NSArray *)fetchAllProjectsWithUserId:(NSString *)userId
++ (NSArray *)fetchAllProjectsWithUserID:(NSString *)userID
 {
     NSString *requestString = @"";
     return [[self executeFetch:requestString] valueForKey:@"response"];
+}
+
++ (void)postProjectWithPorjectInfo
+{
+	
+}
+
++ (UIImage *)imageForProject:(NSString *)projectID
+{
+	return nil;
 }
 
 @end

@@ -10,11 +10,13 @@
 
 #define PROJECT_NAME @"name"
 #define PROJECT_DESCRIPTION @"description"
+#define PROJECT_IMAGE @"imageURL"
 
 @interface CruznectRequest : NSObject
 
 + (NSArray *)fetchFeaturedProjectsWithUserID:(NSString *)userID;
 + (NSArray *)fetchAllProjectsWithUserID:(NSString *)userID;
 + (void)postProjectWithPorjectInfo;
++ (UIImage *)imageForProject:(NSString *)projectID;
 
 @end

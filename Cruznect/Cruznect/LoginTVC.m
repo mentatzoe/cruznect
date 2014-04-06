@@ -16,7 +16,8 @@
 
 @implementation LoginTVC
 
-NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
+//NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
+NSString * const kLoginScriptURLString = @"http://localhost/logintest.php";
 
 - (BOOL)executeRequestWithRequestBody:(NSString *)requestBody
 {
@@ -32,8 +33,13 @@ NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-    NSDictionary *results = data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:nil] : nil;
-    
+	NSError *error;
+	
+    NSDictionary *results = data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
+	
+    NSLog(@"%@", error);
+	NSLog(@"%@", results);
+	
     if ([[results objectForKey:@"status-code"] isEqual:[NSNumber numberWithInt:200]]) {
         [defaults setObject:@"YES" forKey:@"login"];
         return YES;

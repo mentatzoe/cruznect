@@ -9,6 +9,10 @@
 #import "FeaturedTVC.h"
 #import "CruznectRequest.h"
 
+#define kImageViewTag 11
+#define kTitleTextLabelTag 22
+#define kDetailTextViewTag 33
+
 @interface FeaturedTVC ()
 @property (strong, nonatomic) NSArray *featuredProjects;
 @end
@@ -61,8 +65,13 @@
 															forIndexPath:indexPath];
     
 	NSDictionary *project = [self.featuredProjects objectAtIndex:indexPath.row];
-	cell.textLabel.text = [project objectForKey:PROJECT_NAME];
-	cell.detailTextLabel.text = [project objectForKey:PROJECT_DESCRIPTION];
+	
+	UIImageView *imageView = (UIImageView *)[cell viewWithTag:kImageViewTag];
+	imageView.image = [CruznectRequest imageForProject:[project objectForKey:PROJECT_IMAGE]];
+	UILabel *titleLabel = (UILabel *)[cell viewWithTag:kTitleTextLabelTag];
+	titleLabel.text = [project objectForKey:PROJECT_NAME];
+	UITextView *detailTextView = (UITextView *)[cell viewWithTag:kDetailTextViewTag];
+	detailTextView.text = [project objectForKey:PROJECT_DESCRIPTION];
     
     return cell;
 }

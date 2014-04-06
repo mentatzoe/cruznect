@@ -7,9 +7,8 @@
 //
 
 #import "ProjectsTVC.h"
-#import "ProjectTVC.h"
 
-@interface ProjectsTVC () <ProjectTVCDelegate>
+@interface ProjectsTVC ()
 
 @end
 
@@ -23,7 +22,7 @@
 		
 		ProjectTVC *projectTVC = segue.destinationViewController;
 		[projectTVC setProject:project];
-		[projectTVC setDelegate:self];
+		[projectTVC setCanDeleteProject:NO];
 	}
 }
 
@@ -47,10 +46,37 @@
     
 	NSDictionary *project = [self.projects objectAtIndex:indexPath.section];
 	
-	UIImageView *imageView = (UIImageView *)[cell viewWithTag:kImageViewTag];
-	imageView.image = [CruznectRequest imageForProject:[project objectForKey:PROJECT_IMAGE]];
+	
+	
 	UILabel *titleLabel = (UILabel *)[cell viewWithTag:kTitleTextLabelTag];
 	titleLabel.text = [project objectForKey:PROJECT_NAME];
+	
+	
+	dispatch_queue_t fetchQ = dispatch_queue_create("Cruznect Fetch", NULL);
+    dispatch_async(fetchQ, ^{
+        NSArray *talents = [CruznectRequest fetchProjectRequirementsWithProjectID:[project objectForKey:PROJECT_ID]];
+		UIImage *image = [CruznectRequest imageForProject:[project objectForKey:PROJECT_IMAGE]];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSString *talentString = @"";
+			BOOL needComma = NO;
+			for (NSDictionary *talent in talents) {
+				if (needComma == NO) {
+					talentString =
+					[NSString stringWithFormat:@"%@", [talent objectForKey:PROJECT_REQUIRE_TALENT_NAME]];
+					needComma = YES;
+				} else {
+					talentString =
+					[NSString stringWithFormat:@"%@, %@", talentString, [talent objectForKey:PROJECT_REQUIRE_TALENT_NAME]];
+				}
+			}
+			UILabel *talentLabel = (UILabel *)[cell viewWithTag:kTalentStringTag];
+			talentLabel.text = talentString;
+			
+			UIImageView *imageView = (UIImageView *)[cell viewWithTag:kImageViewTag];
+			imageView.image = image;
+		});
+    });
+	
 	UITextView *detailTextView = (UITextView *)[cell viewWithTag:kDetailTextViewTag];
 	detailTextView.text = [project objectForKey:PROJECT_DESCRIPTION];
     

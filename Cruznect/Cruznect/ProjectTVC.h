@@ -10,12 +10,16 @@
 
 @protocol ProjectTVCDelegate <NSObject>
 
+- (void)userDidDeleteProject:(NSDictionary *)project;
 
 @end
 
 @interface ProjectTVC : UITableViewController
 
 @property (strong, nonatomic) NSDictionary *project;
+
+@property (assign, nonatomic) BOOL canDeleteProject;
+
 @property (weak, nonatomic) id<ProjectTVCDelegate> delegate;
 
 @end

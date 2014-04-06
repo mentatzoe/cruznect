@@ -32,17 +32,19 @@
 
 #pragma mark - LoginTVCDelegate
 
-- (void)loginSucceedWithUsername:(NSString *)username
-					 andPassword:(NSString *)password
+- (void)loginSucceedWithEmail:(NSString *)email
+					 password:(NSString *)password
+					andUserID:(NSString *)userID
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
 	// Set login to yes
 	[defaults setObject:[NSNumber numberWithBool:YES] forKey:@"login"];
 	
-	// Save username and password
-	[defaults setObject:username forKey:@"username"];
+	// Save email and password
+	[defaults setObject:email forKey:@"email"];
 	[defaults setObject:password forKey:@"password"];
+	[defaults setObject:userID forKey:@"userID"];
 	
 	// Dismiss login table view controller
 	[self dismissViewControllerAnimated:YES completion:nil];

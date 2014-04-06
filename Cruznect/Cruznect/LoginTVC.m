@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) UIAlertView *loginErrorAlertView;
+@property (strong, nonatomic) NSString *userID;
 @end
 
 @implementation LoginTVC
@@ -39,6 +40,7 @@ NSString * const kLoginScriptURLString = @"http://localhost/logintest.php";
 	NSLog(@"%@", results);
 	
     if ([[results objectForKey:@"status-code"] isEqual:[NSNumber numberWithInt:200]]) {
+		self.userID = [results objectForKey:@"id"];
         return YES;
     } else {
         return NO;
@@ -46,7 +48,7 @@ NSString * const kLoginScriptURLString = @"http://localhost/logintest.php";
 }
 
 NSString * const kLoginErrorAlertTitle = @"Login Error";
-NSString * const kLoginErrorAlertMessage = @"Check you username and password";
+NSString * const kLoginErrorAlertMessage = @"Check you email and password";
 
 - (UIAlertView *)loginErrorAlertView
 {
@@ -85,7 +87,8 @@ NSString * const kLoginErrorAlertMessage = @"Check you username and password";
 												target:nil
 												action:nil];
 				[self.delegate loginSucceedWithEmail:emailString
-										 andPassword:passwordString];
+											password:passwordString
+										   andUserID:self.userID];
             } else {
 				self.navigationItem.rightBarButtonItem = sender;
                 [self.loginErrorAlertView show];

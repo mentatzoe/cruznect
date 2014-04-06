@@ -140,12 +140,13 @@ function getCount($talent){
 function print_rows($id){
 
 	if ($id == 0){
-	$query = sprintf("SELECT * FROM projects");
+	$query = sprintf("SELECT * FROM projects WHERE active = 1");
 	}
 	else {
 		$query = "SELECT project_id as id, projects.name as name, description, projects.imageURL as imageURL
 	FROM project_required, projects, talents 
 	WHERE project_required.project_id = projects.id
+	AND projects.active = 1
 	AND project_required.talent_id = talents.id
 	AND talents.id = $id";
 	}
@@ -319,6 +320,13 @@ function is_owner($projectid){
 	} else {
 		return false;
 	}
+}
+
+function get_owner($projectid){
+	$query = "SELECT owner FROM projects WHERE id = $projectid";
+	$result = Query($query);
+	$row = $result->fetch_assoc();
+	return $row['owner'];
 }
 
 

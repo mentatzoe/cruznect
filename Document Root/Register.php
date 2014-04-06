@@ -1,23 +1,58 @@
+
 <?php
+//This file is called when a successful register happens
 	include 'functions.php';
-	echo "hello";
-	var_dump($_POST);
-	
-	echo count($_POST['talents']);
-	if(!empty($_POST['talents'])) {
-    	
+
+
+
+	//get post variables
+	$name=$_POST["name"];
+	$password=md5($_POST["password"]);
+	$email=$_POST["email"];
+
+	//Cehck if email aready 
+	$query = sprintf("
+		SELECT id 
+		FROM users
+		WHERE email='$email'
+		");
+	$result = Query($query);
+
+	if ($result) {
+    	$_POST['error']="Email already registered";
+ 		header('Location: index.php');
 	}
-	
-if(!empty($_POST['talents'])) {
-    foreach($_POST['talents'] as $check) {
-            echo $check; //echoes the value set in the HTML form for each checked checkbox.
-                         //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
-                         //in your case, it would echo whatever $row['Report ID'] is equivalent to.
-    }
-}
-	
-	$username=$_POST["username"];
-	$password=$_POST["password"];
+
+	//insert user
+	$query = sprintf("
+		INSERT into users (email, password, name, active)
+		VALUES ($email, $password, $name, 1)
+		");
+
+	Query($query);
+
+	//get user ID
+	$query = sprintf("
+		SELECT id 
+		FROM
+		users
+		WHERE 
+		email='$email'
+		");
+	$result = Query($query);
+
+	$row = mysqli_fetch_assoc($result);
+	$id=$row["id"];
+
+	//add talents
+	foreach ($_POST['talents'] as  $value) {
+		$query = sprintf("
+		INSERT into user_talents
+		VALUES ('$id', '$value')
+		");
+		Query($query);
+	}
+
 
 
 ?>

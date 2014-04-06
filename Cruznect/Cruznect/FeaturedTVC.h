@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Cruznect. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ProjectsTVC.h"
 
-@interface FeaturedTVC : UITableViewController
+@interface FeaturedTVC : ProjectsTVC
 
 @end

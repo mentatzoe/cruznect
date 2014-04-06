@@ -14,8 +14,9 @@
 
 @interface CruznectRequest : NSObject
 
-+ (NSArray *)fetchFeaturedProjectsWithUserID:(NSString *)userID;
+//+ (NSArray *)fetchFeaturedProjectsWithUserID:(NSString *)userID;
 + (NSArray *)fetchAllProjectsWithUserID:(NSString *)userID;
++ (NSArray *)fetchUserProjectsWithUserID:(NSString *)userID;
 + (void)postProjectWithPorjectInfo;
 + (UIImage *)imageForProject:(NSString *)projectID;
 

@@ -29,15 +29,21 @@ NSString * const baseScriptURLString = @"/";
     return results;
 }
 
-+ (NSArray *)fetchFeaturedProjectsWithUserID:(NSString *)userID
-{
-	NSString *requestString = @"";
-    return [[self executeFetch:requestString] valueForKey:@"response"];
-}
+//+ (NSArray *)fetchFeaturedProjectsWithUserID:(NSString *)userID
+//{
+//	NSString *requestString = @"";
+//    return [[self executeFetch:requestString] valueForKey:@"response"];
+//}
 
 + (NSArray *)fetchAllProjectsWithUserID:(NSString *)userID
 {
     NSString *requestString = @"";
+    return [[self executeFetch:requestString] valueForKey:@"response"];
+}
+
++ (NSArray *)fetchUserProjectsWithUserID:(NSString *)userID
+{
+	NSString *requestString = @"";
     return [[self executeFetch:requestString] valueForKey:@"response"];
 }
 

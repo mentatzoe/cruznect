@@ -1,27 +1,23 @@
 <?php
+	include 'functions.php';
 
-	$username = $_POST["username"];
-	$password = $_POST["password"];
+	//recieve post variables
+	$email = $_POST["email"];
+	$password = md5($_POST["password"]);
 
+	//check if it exists
+	$query = sprintf("SELECT email, password FROM users WHERE email='$username'");
+	$result = Query($query);
 
-	$DB_NAME = "";
-	$DB_HOST = "localhost";
-	$DB_USER = "root";
-	$DB_PASS = "root";
-	
-	$mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-	$mysqli->set_charset("utf8");
-
-	$query = sprintf("SELECT username, password FROM users WHERE username='$username'");
-	$result = mysql_query($query);
 
 	if (!$result) {
-    	missingUser();
+	$_POST['error']='User does not exist';
+    header('Location: index.php');
 	}
 
-	while ($row = mysql_fetch_assoc($result)) {
+	while ($row = mysqli_fetch_assoc($result)) {
 		//Success of login in
-    	if ($pass == $row['password'])
+    	if (strcmp($pass,$row['password'])==0)
     		login();
 
     	//Incorrect Password
@@ -33,26 +29,20 @@
 
 		function login(){
 			session_start();
-			$_SESSION['username']=$username;
+			$_SESSION['email']=$username;
 			
 			$status = 200;
-			$json = array("$username", "$status");
-			json_encode( $json );
+			$json = array("username" = $username, "status-code" = $status);
+			echo json_encode( $json );
 
 			header( 'Location: index.php' ) ;
 		}
 
-		function inCorrectPass(){
-			$status = 0;
-			$json = array("$username", "$status");
-			json_encode( $json );
+		function incorrectPass(){
+			$_POST['error']='Incorrect Email / Password';
+			header('Location: index.php');
 
 		}
 
-		function inCorrectPass(){
-			$status = 0;
-			$json = array("$username", "$status");
-			json_encode( $json );
 
-		}
 ?>

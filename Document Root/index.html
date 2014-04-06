@@ -23,7 +23,38 @@
 <h1>Connect with people at UCSC</h1>
 <h3>Share your passions.</h3>
 	<div id="main_login">
-		asdasd
+		<form method="post" action="login.php" id="main_login_form">
+				<div id="main_login_form_header">
+					<h3>Log in</h3>
+					Or do you want to <a href="#" id="register">Register</a>?
+	   			</div>
+	   			<input type="text" id="email" name="email" placeholder="@ucsc.edu" class="large_input" />
+	   			<input type="password" id="password" name="password" placeholder="Password" class="large_input" />
+	   			<div id="main_login_form_footer">
+		   			<input type="submit" value="Log in" />
+	   			</div>
+		</form>
+		<form method="post" action="register.php" id="main_register_form">
+				<div id="main_login_form_header">
+					<h3>Register</h3>
+					@ucsc.edu only, sorry!
+	   			</div>
+	   			<input type="text" id="email" name="email" placeholder="@ucsc.edu" class="large_input" /><br/>
+	   			<input type="password" id="password" name="password" placeholder="Password" class="large_input" /><br/>
+	   			<input type="password" id="password" name="password" placeholder="Verify your password!" class="large_input" /><br/>
+	   			<input type="text" id="name" name="name" placeholder="Full name" class="large_input" /><br/>
+	   			<label for="active">Are you looking for projects?</label><br/>
+	   			<input type="radio" name="active" value="1">Yes!
+	   			<input type="radio" name="active" value="0">No, I've got my own.<br/><br/>
+	   			<label for="talents">What's your main skillset? <br/> (select as many as you want!)</label><br/>
+	   			<!--This will be populated from the talents database-->
+	   			<input type="checkbox" name="talents" value="Talent_id">Talent.name<br/>
+	   			<input type="checkbox" name="talents" value="Talent_id2">Talent.name<br/>
+	   			<input type="checkbox" name="talents" value="Talent_id3">Talent.name<br/>
+	   			<div id="main_login_form_footer">
+		   			<input type="submit" value="Register!" />
+	   			</div>
+		</form>
 	</div>
 	<div id="main_count">
 		Do you need someone for your project? <br/>
@@ -42,6 +73,19 @@ $("#header_login").click(
 		}
 		else{
 			$("#main_login").show("slow");		
+		}
+	}
+);
+
+$("#register").click(
+	function(){
+		if($("#main_login_form").is(":visible")){
+			$("#main_login_form").hide("slow");
+			$("#main_register_form").show("slow");		
+		}
+		else{
+			$("#main_login_form").show("slow");		
+			$("#main_register_form").hide("slow");		
 		}
 	}
 );

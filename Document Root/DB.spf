@@ -43,27 +43,26 @@
 		<dict>
 			<key>connectionEncoding</key>
 			<string>utf8</string>
-			<key>contentFilter</key>
-			<dict/>
 			<key>contentPageNumber</key>
 			<integer>1</integer>
 			<key>contentSelection</key>
 			<data>
-			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
-			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
-			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
-			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
-			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
-			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
-			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
-			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
-			dXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5TTXV0YWJs
-			ZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tleWVkQXJj
-			aGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBl
-			AGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA
-			1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEtATIBRAFIAVEBVgFl
-			AWkBcQF2AXkBiwGOAZMAAAAAAAACAQAAAAAAAAA6AAAAAAAAAAAA
-			AAAAAAABlQ==
+			YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK4HCBUWFxgZHSQpLTE0OFUkbnVsbNMJ
+			CgsMEBRXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6MNDg+AAoAD
+			gASjERITgAWABoAIgA1UdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rp
+			b25EZXRhaWxUeXBlUHJpbWFyeUtleWVkRGV0YWlsc9MJCgsaGxyg
+			oIAH0h4fICFaJGNsYXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJs
+			ZURpY3Rpb25hcnmjICIjXE5TRGljdGlvbmFyeVhOU09iamVjdNIK
+			CyUooiYngAmAC4AM0gsqKyxZTlMuc3RyaW5ngApXdXNlcl9pZNIe
+			Hy4vXxAPTlNNdXRhYmxlU3RyaW5noy4wI1hOU1N0cmluZ9ILKisz
+			gApacHJvamVjdF9pZNIeHzU2Xk5TTXV0YWJsZUFycmF5ozU3I1dO
+			U0FycmF50h4fIjmiIiNfEA9OU0tleWVkQXJjaGl2ZXLRPD1UZGF0
+			YYABAAgAEQAaACMALQAyADcARgBMAFMAWwBmAG0AcQBzAHUAdwB7
+			AH0AfwCBAIMAiACNAJIAuwDCAMMAxADGAMsA1gDfAPUA+QEGAQ8B
+			FAEXARkBGwEdASIBLAEuATYBOwFNAVEBWgFfAWEBbAFxAYABhAGM
+			AZEBlAGmAakBrgAAAAAAAAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAA
+			AAGw
 			</data>
 			<key>contentSortColIsAsc</key>
 			<true/>
@@ -75,33 +74,35 @@
 			<string>DROP TABLE IF EXISTS project_required;
 DROP TABLE IF EXISTS user_projects;
 DROP TABLE IF EXISTS user_talents;
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS project;
-DROP TABLE IF EXISTS talent;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
 
 
-CREATE TABLE user (
+CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT, 
-	username VARCHAR(20), 
-	password VARCHAR(20), 
-	email VARCHAR(50),  
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
 	active INT,
 	profilepic VARCHAR(100),
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE talent(
+CREATE TABLE talents(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE project(
+CREATE TABLE projects(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	description LONGTEXT,
-	picture VARCHAR(100),
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
 	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
 	PRIMARY KEY (id)
 );
 
@@ -109,31 +110,70 @@ CREATE TABLE project_required (
  	project_id INT NOT NULL,
  	talent_id INT NOT NULL,
  	number_of_people INT,
- 	PRIMARY KEY(project_id),
- 	FOREIGN KEY(project_id) REFERENCES project(id),
- 	FOREIGN KEY(talent_id) REFERENCES talent(id)
-);
-
-	
-CREATE TABLE user_projects(
-	user_id INT NOT NULL,
-	project_id INT NOT NULL,
-	PRIMARY KEY(user_id),
-	FOREIGN KEY(user_id) REFERENCES user(id),
-	FOREIGN KEY(project_id) REFERENCES project(id)
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
 );
 
 CREATE TABLE user_talents(
 		user_id INT NOT NULL,
 		talent_id INT NOT NULL,
-		PRIMARY KEY(user_id),
-		FOREIGN KEY(user_id) REFERENCES user(id),
-		FOREIGN KEY(talent_id) REFERENCES talent(id)
-);</string>
-			<key>table</key>
-			<string>user</string>
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+
+
+/* USER INSERTS*/
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO users(email, name, active) VALUES ('mlopezla@ucsc.edu','Maria',1);
+INSERT INTO users(email, name, active) VALUES ('aprowe@ucsc.edu','Alex',1);
+INSERT INTO users(email, name, active) VALUES ('hesu@ucsc.edu','Bruce',1);
+INSERT INTO users(email, name, active) VALUES ('unactive@ucsc.edu','Unactive Person',0);
+INSERT INTO users(email, name, active) VALUES ('active@ucsc.edu','Active Person',1);
+
+/*TALENT INSERTS*/
+INSERT INTO talents(name) VALUES ('Coding');
+INSERT INTO talents(name) VALUES ('Art');
+INSERT INTO talents(name) VALUES ('Music');
+
+INSERT INTO talents(name) VALUES ('Filmmaking');
+INSERT INTO talents(name) VALUES ('Digital Painting');
+INSERT INTO talents(name) VALUES ('Playwriting');
+
+/*USER_TALENT INSERTS*/
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,1);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (4,4);
+INSERT INTO user_talents(user_id, talent_id) VALUES (5,5);
+INSERT INTO user_talents(user_id, talent_id) VALUES (6,6);
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,3);
+
+/*PROJECT INSERTS*/
+INSERT INTO projects(name, description, owner, active) VALUES ('Project1','Project 1',1,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project2','Project 1',2,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project3','Project 1',3,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project4','Project 1',4,1);
+
+
+/*PROJECT_REQUIRED INSERTS*/
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (1,1,1);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (2,2,2);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (3,3,3);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (4,4,4);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (1,5,5);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (3,6,6);
+
+
+
+
+
+</string>
 			<key>view</key>
-			<string>SP_VIEW_CONTENT</string>
+			<string>SP_VIEW_CUSTOMQUERY</string>
 			<key>windowVerticalDividerPosition</key>
 			<real>202</real>
 		</dict>
@@ -146,163 +186,660 @@ CREATE TABLE user_talents(
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>SELECT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 6</string>
+		<string>SELECT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 5</string>
+		<string>SELECT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 4</string>
+		<string>SELECT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 3</string>
+		<string>SELECT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 2</string>
+		<string>SELECT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 1</string>
+		<string>SELECT DISTINCT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talent_id
+AND users.id = 1</string>
+		<string>SELECT DISTINCT talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talents_id
+AND users.id = 1</string>
+		<string>SELECT UNIQUE talents.name 
+FROM users, talents, user_talents
+WHERE users.id = user_talents.user_id
+AND talents.id = user_talents.talents_id
+AND users.id = 1</string>
 		<string>DROP TABLE IF EXISTS project_required;
 DROP TABLE IF EXISTS user_projects;
 DROP TABLE IF EXISTS user_talents;
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS project;
-DROP TABLE IF EXISTS talent;
-CREATE TABLE user (
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT, 
-	username VARCHAR(20), 
-	password VARCHAR(20), 
-	email VARCHAR(50),  
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
 	active INT,
 	profilepic VARCHAR(100),
 	PRIMARY KEY (id)
 );
-CREATE TABLE talent(
+CREATE TABLE talents(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	PRIMARY KEY (id)
 );
-CREATE TABLE project(
+CREATE TABLE projects(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	description LONGTEXT,
-	picture VARCHAR(100),
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
 	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
 	PRIMARY KEY (id)
 );
 CREATE TABLE project_required (
  	project_id INT NOT NULL,
  	talent_id INT NOT NULL,
  	number_of_people INT,
- 	PRIMARY KEY(project_id),
- 	FOREIGN KEY(project_id) REFERENCES project(id),
- 	FOREIGN KEY(talent_id) REFERENCES talent(id)
-);
-CREATE TABLE user_projects(
-	user_id INT NOT NULL,
-	project_id INT NOT NULL,
-	PRIMARY KEY(user_id),
-	FOREIGN KEY(user_id) REFERENCES user(id),
-	FOREIGN KEY(project_id) REFERENCES project(id)
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
 );
 CREATE TABLE user_talents(
 		user_id INT NOT NULL,
 		talent_id INT NOT NULL,
-		PRIMARY KEY(user_id),
-		FOREIGN KEY(user_id) REFERENCES user(id),
-		FOREIGN KEY(talent_id) REFERENCES talent(id)
-)</string>
-		<string>DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS project;
-DROP TABLE IF EXISTS talent;
-DROP TABLE IF EXISTS project_required;
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+/* USER INSERTS*/
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO users(email, name, active) VALUES ('mlopezla@ucsc.edu','Maria',1);
+INSERT INTO users(email, name, active) VALUES ('aprowe@ucsc.edu','Alex',1);
+INSERT INTO users(email, name, active) VALUES ('hesu@ucsc.edu','Bruce',1);
+INSERT INTO users(email, name, active) VALUES ('unactive@ucsc.edu','Unactive Person',0);
+INSERT INTO users(email, name, active) VALUES ('active@ucsc.edu','Active Person',1);
+/*TALENT INSERTS*/
+INSERT INTO talents(name) VALUES ('Coding');
+INSERT INTO talents(name) VALUES ('Art');
+INSERT INTO talents(name) VALUES ('Music');
+INSERT INTO talents(name) VALUES ('Filmmaking');
+INSERT INTO talents(name) VALUES ('Digital Painting');
+INSERT INTO talents(name) VALUES ('Playwriting');
+/*USER_TALENT INSERTS*/
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,1);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (4,4);
+INSERT INTO user_talents(user_id, talent_id) VALUES (5,5);
+INSERT INTO user_talents(user_id, talent_id) VALUES (6,6);
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,4);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,1);
+/*PROJECT INSERTS*/
+INSERT INTO projects(name, description, owner, active) VALUES ('Project1','Project 1',1,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project2','Project 1',2,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project3','Project 1',3,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project4','Project 1',4,1);
+/*PROJECT_REQUIRED INSERTS*/
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (1,1,1);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (2,2,2);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (3,3,3);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (4,4,4);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (1,5,5);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (3,6,6)</string>
+		<string>DROP TABLE IF EXISTS project_required;
 DROP TABLE IF EXISTS user_projects;
 DROP TABLE IF EXISTS user_talents;
-CREATE TABLE user (
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT, 
-	username VARCHAR(20), 
-	password VARCHAR(20), 
-	email VARCHAR(50),  
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
 	active INT,
 	profilepic VARCHAR(100),
 	PRIMARY KEY (id)
 );
-CREATE TABLE talent(
+CREATE TABLE talents(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	PRIMARY KEY (id)
 );
-CREATE TABLE project(
+CREATE TABLE projects(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	description LONGTEXT,
-	picture VARCHAR(100),
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
 	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
 	PRIMARY KEY (id)
 );
 CREATE TABLE project_required (
  	project_id INT NOT NULL,
  	talent_id INT NOT NULL,
  	number_of_people INT,
- 	PRIMARY KEY(project_id),
- 	FOREIGN KEY(project_id) REFERENCES project(id),
- 	FOREIGN KEY(talent_id) REFERENCES talent(id)
-);
-CREATE TABLE user_projects(
-	user_id INT NOT NULL,
-	project_id INT NOT NULL,
-	PRIMARY KEY(user_id),
-	FOREIGN KEY(user_id) REFERENCES user(id),
-	FOREIGN KEY(project_id) REFERENCES project(id)
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
 );
 CREATE TABLE user_talents(
 		user_id INT NOT NULL,
 		talent_id INT NOT NULL,
-		PRIMARY KEY(user_id),
-		FOREIGN KEY(user_id) REFERENCES user(id),
-		FOREIGN KEY(talent_id) REFERENCES talent(id)
-)</string>
-		<string>IF EXISTS DROP TABLE user</string>
-		<string>DROP TABLE user</string>
-		<string>CREATE TABLE user (
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+/* USER INSERTS*/
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO users(email, name, active) VALUES ('mlopezla@ucsc.edu','Maria',1);
+INSERT INTO users(email, name, active) VALUES ('aprowe@ucsc.edu','Alex',1);
+INSERT INTO users(email, name, active) VALUES ('hesu@ucsc.edu','Bruce',1);
+INSERT INTO users(email, name, active) VALUES ('unactive@ucsc.edu','Unactive Person',0);
+INSERT INTO users(email, name, active) VALUES ('active@ucsc.edu','Active Person',1);
+/*TALENT INSERTS*/
+INSERT INTO talents(name) VALUES ('Coding');
+INSERT INTO talents(name) VALUES ('Art');
+INSERT INTO talents(name) VALUES ('Music');
+INSERT INTO talents(name) VALUES ('Filmmaking');
+INSERT INTO talents(name) VALUES ('Digital Painting');
+INSERT INTO talents(name) VALUES ('Playwriting');
+/*USER_TALENT INSERTS*/
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,1);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (4,4);
+INSERT INTO user_talents(user_id, talent_id) VALUES (5,5);
+INSERT INTO user_talents(user_id, talent_id) VALUES (6,6);
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,1);
+/*PROJECT INSERTS*/
+INSERT INTO projects(name, description, owner, active) VALUES ('Project1','Project 1',1,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project2','Project 1',2,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project3','Project 1',3,1);
+INSERT INTO projects(name, description, owner, active) VALUES ('Project4','Project 1',4,1);
+/*PROJECT_REQUIRED INSERTS*/
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (1,1,1);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (2,2,2);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (3,3,3);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (4,4,4);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (1,5,5);
+INSERT INTO project_required(project_id, talent_id, number_of_people) VALUES (3,6,6)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT, 
-	username VARCHAR(20), 
-	password VARCHAR(20), 
-	email VARCHAR(50),  
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
 	active INT,
 	profilepic VARCHAR(100),
 	PRIMARY KEY (id)
-)</string>
-		<string>CREATE TABLE user (
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+/* USER INSERTS*/
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO users(email, name, active) VALUES ('mlopezla@ucsc.edu','Maria',1);
+INSERT INTO users(email, name, active) VALUES ('aprowe@ucsc.edu','Alex',1);
+INSERT INTO users(email, name, active) VALUES ('hesu@ucsc.edu','Bruce',1);
+INSERT INTO users(email, name, active) VALUES ('unactive@ucsc.edu','Unactive Person',0);
+INSERT INTO users(email, name, active) VALUES ('active@ucsc.edu','Active Person',1);
+/*TALENT INSERTS*/
+INSERT INTO talents(name) VALUES ('Coding');
+INSERT INTO talents(name) VALUES ('Art');
+INSERT INTO talents(name) VALUES ('Music');
+INSERT INTO talents(name) VALUES ('Filmmaking');
+INSERT INTO talents(name) VALUES ('Digital Painting');
+INSERT INTO talents(name) VALUES ('Playwriting');
+/*USER_TALENT INSERTS*/
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,1);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (4,4);
+INSERT INTO user_talents(user_id, talent_id) VALUES (5,5);
+INSERT INTO user_talents(user_id, talent_id) VALUES (6,6);
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT, 
-	username VARCHAR(20), 
-	password VARCHAR(20), 
-	email VARCHAR(50),  
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
 	active INT,
 	profilepic VARCHAR(100),
-	PRIMARY KEY ('id')
-)</string>
-		<string>CREATE TABLE user (
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+/* USER INSERTS*/
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO users(email, name, active) VALUES ('mlopezla@ucsc.edu','Maria',1);
+INSERT INTO users(email, name, active) VALUES ('aprowe@ucsc.edu','Alex',1);
+INSERT INTO users(email, name, active) VALUES ('hesu@ucsc.edu','Bruce',1);
+INSERT INTO users(email, name, active) VALUES ('unactive@ucsc.edu','Unactive Person',0);
+INSERT INTO users(email, name, active) VALUES ('active@ucsc.edu','Active Person',1);
+/*TALENT INSERTS*/
+INSERT INTO talents(name) VALUES ('Coding');
+INSERT INTO talents(name) VALUES ('Art');
+INSERT INTO talents(name) VALUES ('Music');
+INSERT INTO talents(name) VALUES ('Filmmaking');
+INSERT INTO talents(name) VALUES ('Digital Painting');
+INSERT INTO talents(name) VALUES ('Playwriting');
+/*USER_TALENT INSERTS*/
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,1);
+INSERT INTO user_talents(user_id, talent_id) VALUES (2,2);
+INSERT INTO user_talents(user_id, talent_id) VALUES (3,3);
+INSERT INTO user_talents(user_id, talent_id) VALUES (4,4);
+INSERT INTO user_talents(user_id, talent_id) VALUES (5,5);
+INSERT INTO user_talents(user_id, talent_id) VALUES (6,6);
+INSERT INTO user_talents(user_id, talent_id) VALUES (1,1)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT, 
-	'username' VARCHAR(20), 
-	'password' VARCHAR(20), 
-	'email' VARCHAR(50),  
-	'active' INT,
-	'profilepic' VARCHAR(100),
-	PRIMARY KEY ('id')
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+/* USER INSERTS*/
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO users(email, name, active, ) VALUES ('mlopezla@ucsc.edu','Maria',1)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+/* USER INSERTS*/
+INSERT INTO users(email, name, active, ) VALUES ('test@ucsc.edu','Test',0)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+INSERT INTO users(email, name, active) VALUES ('test@ucsc.edu','Test',0);
+INSERT INTO `users`(`email`, `name`, `active`) VALUES (“mlopezla@ucsc.edu”,”Maria”,1)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+INSERT INTO users(email, name, active) VALUES (“test@ucsc.edu”,”Test”,0)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+//USER INSERTS
+INSERT INTO users(email, name, active) VALUES (“test@ucsc.edu”,”Test”,0)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT 'projectimage.png',
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
+);
+CREATE TABLE project_required (
+ 	project_id INT NOT NULL,
+ 	talent_id INT NOT NULL,
+ 	number_of_people INT,
+ 	PRIMARY KEY(project_id, talent_id),
+ 	FOREIGN KEY(project_id) REFERENCES projects(id),
+ 	FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+CREATE TABLE user_talents(
+		user_id INT NOT NULL,
+		talent_id INT NOT NULL,
+		PRIMARY KEY(user_id, talent_id),
+		FOREIGN KEY(user_id) REFERENCES users(id),
+		FOREIGN KEY(talent_id) REFERENCES talents(id)
+);
+//USER INSERTS
+INSERT INTO `users`(`email`, `name`, `active`, ) VALUES (“test@ucsc.edu”,”Test”,0)</string>
+		<string>DROP TABLE IF EXISTS project_required;
+DROP TABLE IF EXISTS user_projects;
+DROP TABLE IF EXISTS user_talents;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS talents;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	email VARCHAR(50), 
+	password VARCHAR(32), 
+	name VARCHAR(100),
+	active INT,
+	profilepic VARCHAR(100),
+	PRIMARY KEY (id)
+);
+CREATE TABLE talents(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	PRIMARY KEY (id)
+);
+CREATE TABLE projects(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description LONGTEXT,
+	imageURL VARCHAR(100) DEFAULT “projectimage.png”,
+	owner INT NOT NULL,
+	active INT NOT NULL,
+	created TIMESTAMP DEFAULT 0,
+	PRIMARY KEY (id)
 )</string>
-		<string>CREATE TABLE user (
-	'id' INT NOT NULL AUTO_INCREMENT, 
-	'username' VARCHAR(20), 
-	'password' VARCHAR(20), 
-	'email' VARCHAR(50),  
-	'active' INT,
-	'profilepic' VARCHAR(100),
-	PRIMARY KEY ('id')
-)</string>
-		<string>CREATE TABLE user (
-	'id' INT NOT NULL AUTO_INCREMENT, 
-	'username' VARCHAR(20), 
-	'password' VARCHAR(50), 
-	'email' VARCHAR(50),  
-	'active' INT,
-	'profilepic' VARCHAR(100),
-	PRIMARY KEY ('id')
-)</string>
-		<string>CREATE TABLE user (
-	'id' INT NOT NULL 'AUTO_INCREMENT', 
-	'username' VARCHAR(20), 
-	'password' VARCHAR(50), 
-	'email' VARCHAR(50),  
-	'active' INT,
-	'profilepic' VARCHAR(100),
-	PRIMARY KEY ('id')
-)</string>
-		<string>CREATE TABLE sorteo (fecha DATE, nombre VARCHAR(20), apellidos VARCHAR(20), programa VARCHAR(10), movil INT(15), fijo INT(15))</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>

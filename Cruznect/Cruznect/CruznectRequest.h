@@ -19,6 +19,7 @@
 #define PROJECT_REQUIRE_TALENT_NAME @"name"
 
 #define USER_NAME @"name"
+#define USER_EMAIL @"email"
 
 @interface CruznectRequest : NSObject
 

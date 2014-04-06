@@ -23,11 +23,13 @@
 #define kRequirementQuantityTag 104
 #define kOwnerLabelTag 105
 #define kCreatedTimeLabelTag 106
+#define kOwnerEmailTag 107
 
 #define kLogoAndTitleCellID @"Logo and Title"
 #define kDetailCellID @"Detail"
 #define kRequirementCellID @"Requirement"
 #define kOwnerCellID @"Owner"
+#define kEmailCellID @"Email"
 #define kTimeCreatedCellID @"Time Created"
 #define kLearnMoreCellID @"Learn More"
 #define kDeletionCellID @"Deletion"
@@ -88,7 +90,7 @@
 			return [self.requirements count];
 			break;
 		case OWNER:
-			return 2;
+			return 3;
 			break;
 		case DELETION:
 			if(self.canDeleteProject) return 1;
@@ -143,6 +145,10 @@
 				UILabel *ownerNameLabel = (UILabel *)[cell viewWithTag:kOwnerLabelTag];
 				ownerNameLabel.text = [self.owner objectForKey:USER_NAME];
 			} else if (indexPath.row == 1) {
+				cell = [self.tableView dequeueReusableCellWithIdentifier:kEmailCellID];
+				UILabel *emailLabel = (UILabel *)[cell viewWithTag:kOwnerEmailTag];
+				emailLabel.text = [self.owner objectForKey:USER_EMAIL];
+			} else if (indexPath.row == 2) {
 				cell = [self.tableView dequeueReusableCellWithIdentifier:kTimeCreatedCellID];
 				UILabel *timeCreatedLabel = (UILabel *)[cell viewWithTag:kCreatedTimeLabelTag];
 				timeCreatedLabel.text = [self.project objectForKey:PROJECT_CREATED_TIME];

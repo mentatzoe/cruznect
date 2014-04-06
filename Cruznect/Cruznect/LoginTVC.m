@@ -8,7 +8,7 @@
 
 #import "LoginTVC.h"
 
-@interface LoginTVC ()
+@interface LoginTVC () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) UIAlertView *loginErrorAlertView;
@@ -28,8 +28,14 @@
 {
 	[super viewDidLoad];
 	
-	[self.emailTextField becomeFirstResponder];
 //	[self setupBackground];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	
+	[self.emailTextField becomeFirstResponder];
 }
 
 //NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
@@ -77,33 +83,50 @@ NSString * const kLoginErrorAlertMessage = @"Check you email and password";
     return _loginErrorAlertView;
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == 0) {
+		[self.emailTextField resignFirstResponder];
+		[self.passwordTextField resignFirstResponder];
+		[self.emailTextField becomeFirstResponder];
+	}
+}
+
+- (IBAction)finishInputingEmail:(id)sender
+{
+	[sender resignFirstResponder];
+	[self.passwordTextField becomeFirstResponder];
+}
+
 - (IBAction)finishInputingPasswordPressed:(id)sender
 {
 	[self.passwordTextField resignFirstResponder];
-	[self login:sender];
+	[self login];
 }
 
 - (IBAction)loginButtonPressed:(id)sender
 {
-	[self login:sender];
+	[self login];
 }
 
-- (void)login:(id)sender
+- (void)login
 {
 	NSString *emailString = self.emailTextField.text;
 	NSString *passwordString = self.passwordTextField.text;
 	
 	NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@", emailString, passwordString];
     
+	UIBarButtonItem *loginBarButtonItem = self.navigationItem.rightBarButtonItem;
 	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner startAnimating];
+	
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     
     dispatch_queue_t verifyQ = dispatch_queue_create("Cruznect Verify", NULL);
     dispatch_async(verifyQ, ^{
-		//        BOOL login = [self executeRequestWithRequestBody:requestBody];
+		BOOL login = [self executeRequestWithRequestBody:requestBody];
 		
-		BOOL login = YES;
+//		BOOL login = YES;
 		
         dispatch_async(dispatch_get_main_queue(), ^{
             if (login) {
@@ -116,7 +139,7 @@ NSString * const kLoginErrorAlertMessage = @"Check you email and password";
 											password:passwordString
 										   andUserID:self.userID];
             } else {
-				self.navigationItem.rightBarButtonItem = sender;
+				self.navigationItem.rightBarButtonItem = loginBarButtonItem;
                 [self.loginErrorAlertView show];
             }
         });

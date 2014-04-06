@@ -135,28 +135,6 @@ function getCount($talent){
 
 }
 
-function print_rows(){
-	$query = sprintf("SELECT * FROM projects");
-	$result = Query($query);
-	while ($row = mysqli_fetch_assoc($result)) {
-		echo "<div class='main_content_row'>
-			<table class='main_content_table'>
-				<tr>
-					<td>
-						<img src='".$row["imageURL"]."' class='project_img'/>
-					</td>
-					<td class='main_content_text'>
-					<h3> ".$row["name"]."</h3><br/>
-					".$row["description"]."
-					</td>
-					<td>
-						<a href='#' class='project_btn' id='".$row["id"]."'>JOIN</a>
-					</td>
-				</tr>
-			</table>
-		</div>";
-			}
-}
 
 
 ?>

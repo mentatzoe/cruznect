@@ -3,7 +3,7 @@
 	include "header.php";
 	include "navbar.php";
 	if($_SESSION['email']){
-		//include "main_logged.php";
+		include "main_logged.php";
 		echo $_SESSION['email'];
 	} else {
 		include "main.php";

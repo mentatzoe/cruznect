@@ -294,4 +294,26 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+#pragma mark - Share 
+
+- (void)displayActivityControllerWithDataObject:(id)obj
+{
+    UIActivityViewController *vc =
+	[[UIActivityViewController alloc] initWithActivityItems:@[obj]
+									  applicationActivities:nil];
+    [self presentViewController:vc
+					   animated:YES
+					 completion:^{
+						 //
+					 }];
+}
+
+- (IBAction)shareProject:(id)sender
+{
+	if (self.canDeleteProject) {
+		[self displayActivityControllerWithDataObject:[NSString stringWithFormat:@"Check out my project: %@!\n%@", [self.project objectForKey:PROJECT_NAME], [self.project objectForKey:PROJECT_DESCRIPTION]]];
+	} else {
+		[self displayActivityControllerWithDataObject:[NSString stringWithFormat:@"Check out this interesting project: %@!\n%@", [self.project objectForKey:PROJECT_NAME], [self.project objectForKey:PROJECT_DESCRIPTION]]];
+	}
+}
 @end

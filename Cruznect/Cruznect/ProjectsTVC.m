@@ -7,49 +7,36 @@
 //
 
 #import "ProjectsTVC.h"
+#import "ProjectTVC.h"
 
-@interface ProjectsTVC ()
+@interface ProjectsTVC () <ProjectTVCDelegate>
 
 @end
 
 @implementation ProjectsTVC
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	if ([segue.identifier isEqualToString:@"Project"]) {
+		NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+		NSDictionary *project = [self.projects objectAtIndex:indexPath.section];
+		
+		ProjectTVC *projectTVC = segue.destinationViewController;
+		[projectTVC setProject:project];
+		[projectTVC setDelegate:self];
+	}
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self.projects count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.projects count];
+	return 1;
 }
 
 
@@ -58,7 +45,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Project"
 															forIndexPath:indexPath];
     
-	NSDictionary *project = [self.projects objectAtIndex:indexPath.row];
+	NSDictionary *project = [self.projects objectAtIndex:indexPath.section];
 	
 	UIImageView *imageView = (UIImageView *)[cell viewWithTag:kImageViewTag];
 	imageView.image = [CruznectRequest imageForProject:[project objectForKey:PROJECT_IMAGE]];
@@ -68,6 +55,13 @@
 	detailTextView.text = [project objectForKey:PROJECT_DESCRIPTION];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 132.0;
 }
 
 @end

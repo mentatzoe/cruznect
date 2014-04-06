@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CruznectRequest.h"
+#import "ProjectTVC.h"
 
 #define kImageViewTag 11
 #define kTitleTextLabelTag 22

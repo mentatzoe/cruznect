@@ -14,6 +14,7 @@
 #define DETAILS 1
 #define REQUIREMENTS 2
 #define OWNER 3
+#define DELETION 4
 
 #define kLogoImageViewTag 100
 #define kTitleLabelTag 101
@@ -29,6 +30,7 @@
 #define kOwnerCellID @"Owner"
 #define kTimeCreatedCellID @"Time Created"
 #define kLearnMoreCellID @"Learn More"
+#define kDeletionCellID @"Deletion"
 
 @interface ProjectTVC ()
 @property (strong, nonatomic) NSArray *requirements;
@@ -60,12 +62,16 @@
                             action:@selector(refresh)
                   forControlEvents:UIControlEventValueChanged];
     [self refresh];
+	self.title = [self.project objectForKey:PROJECT_NAME];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+	if (self.canDeleteProject) {
+		return NUMBER_OF_SECTIONS + 1;
+	}
     return NUMBER_OF_SECTIONS;
 }
 
@@ -83,6 +89,9 @@
 			break;
 		case OWNER:
 			return 2;
+			break;
+		case DELETION:
+			if(self.canDeleteProject) return 1;
 			break;
 		default:
 			break;
@@ -140,7 +149,12 @@
 			}
 			break;
 		}
-		
+		case DELETION: {
+			if (self.canDeleteProject) {
+				cell = [self.tableView dequeueReusableCellWithIdentifier:kDeletionCellID];
+			}
+			break;
+		}
 		default:
 			return nil;
 			break;

@@ -7,7 +7,6 @@
 //
 
 #import "ProjectsTVC.h"
-#import "ProjectTVC.h"
 
 @interface ProjectsTVC () <ProjectTVCDelegate>
 
@@ -23,8 +22,8 @@
 		
 		ProjectTVC *projectTVC = segue.destinationViewController;
 		[projectTVC setProject:project];
-		
 		[projectTVC setDelegate:self];
+		[projectTVC setCanDeleteProject:NO];
 	}
 }
 

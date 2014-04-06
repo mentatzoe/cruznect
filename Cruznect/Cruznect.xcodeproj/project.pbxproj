@@ -35,6 +35,8 @@
 		EBDC726D18F1105900EB1BED /* ProjectTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDC726C18F1105900EB1BED /* ProjectTVC.m */; };
 		EBDC727018F117A300EB1BED /* RecentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDC726F18F117A300EB1BED /* RecentsTVC.m */; };
 		EBDC727318F117AE00EB1BED /* MyProjectsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDC727218F117AE00EB1BED /* MyProjectsTVC.m */; };
+		EBFF5EEB18F1CB5A0070560B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFF5EE918F1CB5A0070560B /* delete.png */; };
+		EBFF5EEC18F1CB5A0070560B /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFF5EEA18F1CB5A0070560B /* delete@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		EBDC726F18F117A300EB1BED /* RecentsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsTVC.m; sourceTree = "<group>"; };
 		EBDC727118F117AE00EB1BED /* MyProjectsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectsTVC.h; sourceTree = "<group>"; };
 		EBDC727218F117AE00EB1BED /* MyProjectsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectsTVC.m; sourceTree = "<group>"; };
+		EBFF5EE918F1CB5A0070560B /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		EBFF5EEA18F1CB5A0070560B /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,8 @@
 				EBDC726C18F1105900EB1BED /* ProjectTVC.m */,
 				EB47FFDA18F0C0CF00FB9209 /* CruznectRequest.h */,
 				EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */,
+				EBFF5EE918F1CB5A0070560B /* delete.png */,
+				EBFF5EEA18F1CB5A0070560B /* delete@2x.png */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
 				EB47FFD618F0BF9400FB9209 /* User Interface */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,
@@ -306,7 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFF5EEB18F1CB5A0070560B /* delete.png in Resources */,
 				EB47FFC918F0BCE600FB9209 /* settings@2x.png in Resources */,
+				EBFF5EEC18F1CB5A0070560B /* delete@2x.png in Resources */,
 				EB47FFC818F0BCE600FB9209 /* settings.png in Resources */,
 				EB47FFF418F0FA5C00FB9209 /* bridge-tableview.png in Resources */,
 				EB76F5D918F0929E00743DD3 /* Images.xcassets in Resources */,

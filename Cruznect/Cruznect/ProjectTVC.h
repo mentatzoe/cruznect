@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) NSDictionary *project;
 
+@property (assign, nonatomic) BOOL canDeleteProject;
+
 @property (weak, nonatomic) id<ProjectTVCDelegate> delegate;
 
 @end

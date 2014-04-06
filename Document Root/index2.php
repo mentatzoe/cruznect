@@ -9,6 +9,27 @@
 </head>
 
 <body>
+<?
+	$username = $_GET["username"];
+	$password = $_GET["password"];
+	
+	var_dump($_GET);
+
+	$DB_NAME = "hackathon";
+	$DB_HOST = "localhost";
+	$DB_USER = "root";
+	$DB_PASS = "root";
+	
+	$mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+	$mysqli->set_charset("utf8");
+
+	$query = sprintf("SELECT username, password FROM users WHERE username='$username'");
+	$result = mysql_query($query);
+	
+	var_dump($result);
+	
+	echo "alive";
+ ?>
 <!--These divs will be in separate php files later-->
 <div id="header">
 	<div id="header_logo">

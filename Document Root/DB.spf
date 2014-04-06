@@ -43,6 +43,8 @@
 		<dict>
 			<key>connectionEncoding</key>
 			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
 			<key>contentPageNumber</key>
 			<integer>1</integer>
 			<key>contentSelection</key>
@@ -66,7 +68,7 @@
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {911, 694}}</string>
+			<string>{{0, 0}, {911, 476}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>queries</key>
@@ -129,9 +131,9 @@ CREATE TABLE user_talents(
 		FOREIGN KEY(talent_id) REFERENCES talent(id)
 );</string>
 			<key>table</key>
-			<string>project</string>
+			<string>user</string>
 			<key>view</key>
-			<string>SP_VIEW_CUSTOMQUERY</string>
+			<string>SP_VIEW_CONTENT</string>
 			<key>windowVerticalDividerPosition</key>
 			<real>202</real>
 		</dict>

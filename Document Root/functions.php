@@ -94,12 +94,6 @@ function getTalents(){
 }
 
 
-function Message($message){
-	//This wont work
-	$_POST['message']=$message;
-	Header("Location: message.php");
-
-}
 
 function getCount($talent){
 
@@ -129,5 +123,3 @@ function getCount($talent){
 
 
 ?>
-
-

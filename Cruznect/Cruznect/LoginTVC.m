@@ -17,6 +17,21 @@
 
 @implementation LoginTVC
 
+- (void)setupBackground
+{
+	self.tableView.backgroundColor =
+	[UIColor colorWithPatternImage:[UIImage imageNamed:@"bridge-tableview"]];
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bridge-navbar"] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	[self.emailTextField becomeFirstResponder];
+//	[self setupBackground];
+}
+
 //NSString * const kLoginScriptURLString = @"http://169.254.248.19/logintest.php";
 NSString * const kLoginScriptURLString = @"http://localhost/logintest.php";
 
@@ -62,7 +77,18 @@ NSString * const kLoginErrorAlertMessage = @"Check you email and password";
     return _loginErrorAlertView;
 }
 
+- (IBAction)finishInputingPasswordPressed:(id)sender
+{
+	[self.passwordTextField resignFirstResponder];
+	[self login:sender];
+}
+
 - (IBAction)loginButtonPressed:(id)sender
+{
+	[self login:sender];
+}
+
+- (void)login:(id)sender
 {
 	NSString *emailString = self.emailTextField.text;
 	NSString *passwordString = self.passwordTextField.text;
@@ -75,7 +101,7 @@ NSString * const kLoginErrorAlertMessage = @"Check you email and password";
     
     dispatch_queue_t verifyQ = dispatch_queue_create("Cruznect Verify", NULL);
     dispatch_async(verifyQ, ^{
-//        BOOL login = [self executeRequestWithRequestBody:requestBody];
+		//        BOOL login = [self executeRequestWithRequestBody:requestBody];
 		
 		BOOL login = YES;
 		

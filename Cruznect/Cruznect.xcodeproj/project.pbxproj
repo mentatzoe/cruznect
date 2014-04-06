@@ -16,6 +16,10 @@
 		EB47FFDC18F0C0CF00FB9209 /* CruznectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */; };
 		EB47FFDF18F0D33600FB9209 /* FeaturedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFDE18F0D33500FB9209 /* FeaturedTVC.m */; };
 		EB47FFE518F0F36A00FB9209 /* ProjectsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFE418F0F36A00FB9209 /* ProjectsTVC.m */; };
+		EB47FFF218F0FA5C00FB9209 /* bridge-navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFEE18F0FA5C00FB9209 /* bridge-navbar.png */; };
+		EB47FFF318F0FA5C00FB9209 /* bridge-navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFEF18F0FA5C00FB9209 /* bridge-navbar@2x.png */; };
+		EB47FFF418F0FA5C00FB9209 /* bridge-tableview.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFF018F0FA5C00FB9209 /* bridge-tableview.png */; };
+		EB47FFF518F0FA5C00FB9209 /* bridge-tableview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFF118F0FA5C00FB9209 /* bridge-tableview@2x.png */; };
 		EB76F5BE18F0929E00743DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BD18F0929E00743DD3 /* Foundation.framework */; };
 		EB76F5C018F0929E00743DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */; };
 		EB76F5C218F0929E00743DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB76F5C118F0929E00743DD3 /* UIKit.framework */; };
@@ -56,6 +60,10 @@
 		EB47FFDE18F0D33500FB9209 /* FeaturedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTVC.m; sourceTree = "<group>"; };
 		EB47FFE318F0F36A00FB9209 /* ProjectsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTVC.h; sourceTree = "<group>"; };
 		EB47FFE418F0F36A00FB9209 /* ProjectsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTVC.m; sourceTree = "<group>"; };
+		EB47FFEE18F0FA5C00FB9209 /* bridge-navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bridge-navbar.png"; sourceTree = "<group>"; };
+		EB47FFEF18F0FA5C00FB9209 /* bridge-navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bridge-navbar@2x.png"; sourceTree = "<group>"; };
+		EB47FFF018F0FA5C00FB9209 /* bridge-tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bridge-tableview.png"; sourceTree = "<group>"; };
+		EB47FFF118F0FA5C00FB9209 /* bridge-tableview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bridge-tableview@2x.png"; sourceTree = "<group>"; };
 		EB76F5BA18F0929E00743DD3 /* Cruznect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cruznect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB76F5BD18F0929E00743DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +162,10 @@
 				EB47FFE418F0F36A00FB9209 /* ProjectsTVC.m */,
 				EB47FFDA18F0C0CF00FB9209 /* CruznectRequest.h */,
 				EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */,
+				EB47FFEE18F0FA5C00FB9209 /* bridge-navbar.png */,
+				EB47FFEF18F0FA5C00FB9209 /* bridge-navbar@2x.png */,
+				EB47FFF018F0FA5C00FB9209 /* bridge-tableview.png */,
+				EB47FFF118F0FA5C00FB9209 /* bridge-tableview@2x.png */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
 				EB47FFD618F0BF9400FB9209 /* User Interface */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,
@@ -270,11 +282,15 @@
 			files = (
 				EB47FFC918F0BCE600FB9209 /* settings@2x.png in Resources */,
 				EB47FFC818F0BCE600FB9209 /* settings.png in Resources */,
+				EB47FFF418F0FA5C00FB9209 /* bridge-tableview.png in Resources */,
 				EB76F5D918F0929E00743DD3 /* Images.xcassets in Resources */,
 				EB47FFD418F0BE6700FB9209 /* projects.png in Resources */,
 				EB76F5C818F0929E00743DD3 /* InfoPlist.strings in Resources */,
 				EB47FFD518F0BE6700FB9209 /* projects@2x.png in Resources */,
+				EB47FFF218F0FA5C00FB9209 /* bridge-navbar.png in Resources */,
 				EB76F5D118F0929E00743DD3 /* Main.storyboard in Resources */,
+				EB47FFF518F0FA5C00FB9209 /* bridge-tableview@2x.png in Resources */,
+				EB47FFF318F0FA5C00FB9209 /* bridge-navbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

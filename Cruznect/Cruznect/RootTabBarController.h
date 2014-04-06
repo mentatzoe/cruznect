@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  RootTabBarController.h
 //  Cruznect
 //
 //  Created by Bruce•D•Su on 4/5/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface RootTabBarController : UITabBarController
 
 @end

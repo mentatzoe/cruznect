@@ -18,11 +18,10 @@
 	$row = mysqli_fetch_assoc($result);
 		//Success of login in
     	if (strcmp($password,$row['password'])==0){
-    		$_SESSION['email']=$email;
+
+    		setcookie('email', $email);
 			$status = 200;
 			$json = array("email" => $email, "status-code" => $status);
-
-			
 
 			header("Location: index.php");
 		}

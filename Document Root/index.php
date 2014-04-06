@@ -2,9 +2,8 @@
 	session_start();
 	include "header.php";
 	include "navbar.php";
-	if($_SESSION['email']){
-		//include "main_logged.php";
-		echo $_SESSION['email'];
+	if($_COOKIE['email']){
+		include "main_logged.php";
 	} else {
 		include "main.php";
 	}

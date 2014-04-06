@@ -61,20 +61,20 @@
 			</tr>
 			<tr>
 				<td>
-					<img src="/img/artico.png" class="main_count_img" />
+					<img src="img/artico.png" class="main_count_img" />
 				</td>
 				<td>
-					<img src="/img/csico.png" class="main_count_img" />
+					<img src="img/csico.png" class="main_count_img" />
 					
 				</td>
 				<td>
-					<img src="/img/filmico.png" class="main_count_img" />
+					<img src="img/filmico.png" class="main_count_img" />
 				</td>
 				<td>
-					<img src="/img/musicico.png" class="main_count_img" />
+					<img src="img/musicico.png" class="main_count_img" />
 				</td>
 				<td>
-					<img src="/img/writingico.png" class="main_count_img" />
+					<img src="img/writingico.png" class="main_count_img" />
 				</td>
 			</tr>
 		</table>

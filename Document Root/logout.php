@@ -1,5 +1,5 @@
 <?php 
-session_destroy();
+setcookie("email","",0);
 
 header('Location: index.php');
 ?>

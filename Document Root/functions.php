@@ -18,10 +18,13 @@ function Query($query){
 
 //input[0] is the post number
 //input[1] is the array of talents
-function getPost($input){
 
+
+
+function getPost($input){
+	//if there is a second argument, filter by those talents
 	if($input[1]){
-		$tlist=join(',' , $input[1]);
+		$tlist="'".join("','" , $input[1])."'";
 			$query = sprintf("SELECT projects.id
 			FROM 
 			projects, project_required, talents
@@ -53,6 +56,8 @@ function getPost($input){
 	$count=0;
 
 	while ($row = mysqli_fetch_assoc($result)) {
+
+
 		if($count==$num)
 			return $row;
 
@@ -61,8 +66,19 @@ function getPost($input){
 		
 }
 
-function getTalents(){
-	$id=$_SESSION['id'];
+function getTalents($email){
+
+	//Determine user ID
+	$query = sprintf("SELECT id
+		FROM 
+		users
+		WHERE 
+		email='$email' 
+		");
+	$result = Query($query);
+	$row = mysqli_fetch_assoc($result);
+	$id=$row['id'];
+
 
 	$query = sprintf("SELECT talents.id
 		FROM 
@@ -85,11 +101,10 @@ function getTalents(){
 
 	while($row  = mysqli_fetch_assoc($result)){
 		$str = $row['id'];
-		$column[] = "'$str'";
+		$column[] = "$str";
 	}
 
 	return $column;
-	
 
 }
 

@@ -58,10 +58,16 @@
 
 - (void)userDidDeleteProject:(NSDictionary *)project
 {
-	NSString *projectID = [project objectForKey:PROJECT_ID];
-	[CruznectRequest deleteProject:projectID];
 	[self.navigationController popViewControllerAnimated:YES];
-	[self refresh];
+	
+	dispatch_queue_t fetchQ = dispatch_queue_create("Cruznect Request", NULL);
+    dispatch_async(fetchQ, ^{
+		NSString *projectID = [project objectForKey:PROJECT_ID];
+        [CruznectRequest deleteProject:projectID];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self refresh];
+		});
+    });
 }
 
 @end

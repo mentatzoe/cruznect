@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB20867318F1D079002909FB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB20867218F1D079002909FB /* MessageUI.framework */; };
 		EB47FFBA18F0AD7200FB9209 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFB918F0AD7200FB9209 /* LoginTVC.m */; };
 		EB47FFBD18F0B15600FB9209 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB47FFBC18F0B15600FB9209 /* RootTabBarController.m */; };
 		EB47FFC818F0BCE600FB9209 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = EB47FFC618F0BCE600FB9209 /* settings.png */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB20867218F1D079002909FB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EB47FFB818F0AD7200FB9209 /* LoginTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTVC.h; sourceTree = "<group>"; };
 		EB47FFB918F0AD7200FB9209 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
 		EB47FFBB18F0B15600FB9209 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB20867318F1D079002909FB /* MessageUI.framework in Frameworks */,
 				EB76F5C018F0929E00743DD3 /* CoreGraphics.framework in Frameworks */,
 				EB76F5C218F0929E00743DD3 /* UIKit.framework in Frameworks */,
 				EB76F5BE18F0929E00743DD3 /* Foundation.framework in Frameworks */,
@@ -120,6 +123,8 @@
 		EB47FFD618F0BF9400FB9209 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				EBFF5EE918F1CB5A0070560B /* delete.png */,
+				EBFF5EEA18F1CB5A0070560B /* delete@2x.png */,
 				EB47FFEE18F0FA5C00FB9209 /* bridge-navbar.png */,
 				EB47FFEF18F0FA5C00FB9209 /* bridge-navbar@2x.png */,
 				EB47FFF018F0FA5C00FB9209 /* bridge-tableview.png */,
@@ -172,6 +177,7 @@
 		EB76F5BC18F0929E00743DD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB20867218F1D079002909FB /* MessageUI.framework */,
 				EB76F5BD18F0929E00743DD3 /* Foundation.framework */,
 				EB76F5BF18F0929E00743DD3 /* CoreGraphics.framework */,
 				EB76F5C118F0929E00743DD3 /* UIKit.framework */,
@@ -196,8 +202,6 @@
 				EBDC726C18F1105900EB1BED /* ProjectTVC.m */,
 				EB47FFDA18F0C0CF00FB9209 /* CruznectRequest.h */,
 				EB47FFDB18F0C0CF00FB9209 /* CruznectRequest.m */,
-				EBFF5EE918F1CB5A0070560B /* delete.png */,
-				EBFF5EEA18F1CB5A0070560B /* delete@2x.png */,
 				EB76F5D818F0929E00743DD3 /* Images.xcassets */,
 				EB47FFD618F0BF9400FB9209 /* User Interface */,
 				EB76F5C418F0929E00743DD3 /* Supporting Files */,

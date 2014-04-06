@@ -8,6 +8,7 @@
 
 #import "ProjectTVC.h"
 #import "CruznectRequest.h"
+#import <MessageUI/MessageUI.h>
 
 #define NUMBER_OF_SECTIONS 4
 #define LOGO_AND_TITLE 0
@@ -34,7 +35,7 @@
 #define kLearnMoreCellID @"Learn More"
 #define kDeletionCellID @"Deletion"
 
-@interface ProjectTVC ()
+@interface ProjectTVC () <MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) NSArray *requirements;
 @property (strong, nonatomic) NSDictionary *owner;
 @end
@@ -169,6 +170,32 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	switch (section) {
+		case LOGO_AND_TITLE:
+			return @"LOGO AND NAME";
+			break;
+		case DETAILS:
+			return @"DESCRIPTION";
+			break;
+		case REQUIREMENTS:
+			if ([self.requirements count] > 1) {
+				return @"PROJECT REQUIREMENTS";
+			} else {
+				return @"PROJECT REQUIREMENT";
+			}
+			break;
+		case OWNER:
+			return @"OWNER";
+			break;
+		default:
+			break;
+	}
+	
+	return @"";
+}
+
 #pragma mark - UITableViewDelegate 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,6 +215,41 @@
 			break;
 	}
 	return 44;
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSInteger section = indexPath.section;
+	NSInteger row = indexPath.row;
+	
+	/* Email */
+	if (section == OWNER && row == 1) {
+		[self displayFeedbackMailComposerSheet];
+	}
+}
+
+- (void)displayFeedbackMailComposerSheet
+{
+	if ([MFMailComposeViewController canSendMail]) {
+		MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+		picker.mailComposeDelegate = self;
+		
+		NSString *subject = [NSString stringWithFormat:@"%@ Feedback", [self.project objectForKey:PROJECT_NAME]];
+		[picker setSubject:subject];
+		
+		NSArray *toRecipients = [NSArray arrayWithObject:[self.owner objectForKey:USER_EMAIL]];
+		[picker setToRecipients:toRecipients];
+		
+		[self presentViewController:picker animated:YES completion:NULL];
+	}
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

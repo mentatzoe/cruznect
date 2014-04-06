@@ -9,6 +9,7 @@
 #import "ProjectTVC.h"
 #import "CruznectRequest.h"
 #import <MessageUI/MessageUI.h>
+#import "DescriptionViewController.h"
 
 #define NUMBER_OF_SECTIONS 4
 #define LOGO_AND_TITLE 0
@@ -41,6 +42,15 @@
 @end
 
 @implementation ProjectTVC
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"Learn More"]) {
+		DescriptionViewController *descriptionVC = segue.destinationViewController;
+		
+		[descriptionVC setProject:self.project];
+	}
+}
 
 - (void)refresh
 {

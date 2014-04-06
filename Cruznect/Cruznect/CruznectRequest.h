@@ -31,6 +31,8 @@
 
 + (NSArray *)fetchProjectRequirementsWithProjectID:(NSString *)projectID;
 
++ (void)deleteProject:(NSString *)projectID;
+
 + (NSDictionary *)fetchUserWithUserID:(NSString *)userID;
 
 + (void)postProjectWithPorjectInfo;

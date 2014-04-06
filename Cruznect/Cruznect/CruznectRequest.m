@@ -53,6 +53,13 @@
     return [[self executeFetch:requestString] valueForKey:@"response"];
 }
 
++ (void)deleteProject:(NSString *)projectID
+{
+	NSString *requestString =
+	[NSString stringWithFormat:@"ver0.2/ver0.2/?action_type=project&action=delete_project&project_id=%@", projectID];
+    [self executeFetch:requestString];
+}
+
 + (NSDictionary *)fetchUserWithUserID:(NSString *)userID
 {
 	NSString *requestString =

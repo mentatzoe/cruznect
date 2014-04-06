@@ -36,9 +36,10 @@
 #define kLearnMoreCellID @"Learn More"
 #define kDeletionCellID @"Deletion"
 
-@interface ProjectTVC () <MFMailComposeViewControllerDelegate>
+@interface ProjectTVC () <MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) NSArray *requirements;
 @property (strong, nonatomic) NSDictionary *owner;
+@property (strong, nonatomic) UIAlertView *deleteAlert;
 @end
 
 @implementation ProjectTVC
@@ -76,6 +77,33 @@
                   forControlEvents:UIControlEventValueChanged];
     [self refresh];
 	self.title = [self.project objectForKey:PROJECT_NAME];
+}
+
+NSString * const kDeleteAlertTitle = @"Delete Project";
+NSString * const kDeleteAlertMessage = @"Do you want to delete this project?";
+
+- (UIAlertView *)deleteAlert
+{
+    if (!_deleteAlert) {
+        _deleteAlert = [[UIAlertView alloc] initWithTitle:kDeleteAlertTitle
+                                                  message:kDeleteAlertMessage
+                                                 delegate:self
+                                        cancelButtonTitle:@"Cancel"
+                                        otherButtonTitles:@"Delete", nil];
+    }
+    return _deleteAlert;
+}
+
+#pragma mark - UIAlerView Delegate
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == self.deleteAlert) {
+        if (buttonIndex == 1) {
+            [self.delegate userDidDeleteProject:self.project];
+        }
+    } 
 }
 
 #pragma mark - Table view data source
@@ -235,6 +263,10 @@
 	/* Email */
 	if (section == OWNER && row == 1) {
 		[self displayFeedbackMailComposerSheet];
+	} else if (section == DELETION) {
+		if (self.canDeleteProject) {
+			[self.deleteAlert show];
+		}
 	}
 }
 

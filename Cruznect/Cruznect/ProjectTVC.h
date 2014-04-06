@@ -10,6 +10,7 @@
 
 @protocol ProjectTVCDelegate <NSObject>
 
+- (void)userDidDeleteProject:(NSDictionary *)project;
 
 @end
 
